@@ -1,4 +1,6 @@
-package ui;
+package model;
+
+import model.CourseLoad;
 
 public class User {
     private String firstName;
@@ -11,6 +13,7 @@ public class User {
         this.courseLoad = new CourseLoad();
         this.firstName = "";
         this.lastName = "";
+        this.major = "";
 
     }
 

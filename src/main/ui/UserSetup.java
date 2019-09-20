@@ -1,5 +1,7 @@
 package ui;
 
+import model.User;
+
 import java.util.Scanner;
 
 public class UserSetup {
@@ -39,7 +41,7 @@ public class UserSetup {
         boolean doneAddingCourses = false;
         Scanner courseScan = new Scanner(System.in);
 
-        while (doneAddingCourses == false) {
+        while (!doneAddingCourses) {
             System.out.println("To add a course, please enter a course title:");
             String course = courseScan.nextLine();
             this.user.getCourseLoad().addCourse(course);
