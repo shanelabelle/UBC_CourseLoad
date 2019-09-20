@@ -1,12 +1,14 @@
 package UI;
 
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        User testUser = new User();
+        UserSetup setup = new UserSetup();
 
-        testUser.setFirstName("Shane");
+        setup.getUserInfo();
+        setup.askForCourses();
 
     }
 }
