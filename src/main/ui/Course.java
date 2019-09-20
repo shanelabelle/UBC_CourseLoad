@@ -1,10 +1,10 @@
-package UI;
+package ui;
 
 public class Course {
 
     private String courseName;
 
-    public Course(String name){
+    public Course(String name) {
         this.courseName = name;
     }
 

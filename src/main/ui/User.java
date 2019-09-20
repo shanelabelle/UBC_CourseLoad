@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 public class User {
     private String firstName;
@@ -7,17 +7,18 @@ public class User {
     private CourseLoad courseLoad;
 
 
-    public User(){
+    public User() {
         this.courseLoad = new CourseLoad();
         this.firstName = "";
         this.lastName = "";
 
     }
 
-    public void setFirstName(String name){
+    public void setFirstName(String name) {
         this.firstName = name;
     }
-    public void setLastName (String name){
+
+    public void setLastName(String name) {
         this.lastName = name;
     }
 
@@ -29,7 +30,7 @@ public class User {
         return lastName;
     }
 
-    public void setMajor(String major){
+    public void setMajor(String major) {
         this.major = major;
     }
 
