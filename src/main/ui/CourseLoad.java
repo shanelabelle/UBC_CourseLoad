@@ -33,7 +33,6 @@ public class CourseLoad {
     }
 
 
-
     public int getNumberOfCourses() {
         return this.numberOfCourses;
     }
