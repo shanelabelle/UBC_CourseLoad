@@ -8,6 +8,9 @@ public class Course {
         this.courseName = name;
     }
 
+    // REQUIRES: none
+    // MODIFIES: none
+    // EFFECTS: returns course name
     public String getCourseName() {
         return this.courseName;
     }

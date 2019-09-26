@@ -11,7 +11,9 @@ public class UserSetup {
         this.user = new User();
     }
 
-    // Asks the user for first name, last name, major.
+    // REQUIRES: none
+    // MODIFIES: this
+    // EFFECTS: Asks the user for first name, last name, major.
     public void getUserInfo() {
 
         System.out.println("Hi there, welcome to CourseLoad 1.0!"
@@ -34,8 +36,9 @@ public class UserSetup {
         String major = scan.nextLine();
         this.user.setMajor(major);
     }
-
-    // Get's user to input courses they are currently enrolled in
+    // REQUIRES: none
+    // MODIFIES: this
+    // EFFECTS: Get's user to input courses they are currently enrolled in
     public void askForCourses() {
 
         boolean doneAddingCourses = false;
