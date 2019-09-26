@@ -7,7 +7,7 @@ public class CourseLoad {
     private int numberOfCourses;
 
     public CourseLoad() {
-        this.courses = new ArrayList<Course>();
+        this.courses = new ArrayList<>();
         this.numberOfCourses = 0;
 
     }

@@ -8,6 +8,10 @@ public class Course {
         this.courseName = name;
     }
 
+    public String toString() {
+        return this.courseName;
+    }
+
     // REQUIRES: none
     // MODIFIES: none
     // EFFECTS: returns course name
