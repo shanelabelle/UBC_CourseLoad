@@ -7,10 +7,11 @@ public class CourseLoad {
     private int numberOfCourses;
 
     public CourseLoad() {
-        this.courses = new ArrayList<>();
+        this.courses = new ArrayList<Course>();
         this.numberOfCourses = 0;
 
     }
+
     // REQUIRES: a string
     // MODIFIES: this
     // EFFECTS: adds new course to the user's courseload
@@ -25,9 +26,17 @@ public class CourseLoad {
     // MODIFIES: this
     // EFFECTS: removes new course to the user's courseload
     public void removeCourse(String courseName) {
-        if (this.courses.contains(courseName)) {
-            this.courses.remove(courseName);
-            this.numberOfCourses = --this.numberOfCourses;
+
+        int x = 0;
+
+        while (x < this.courses.size()) {
+            if (this.courses.get(x).getCourseName().equals(courseName)) {
+                this.courses.remove(x);
+                this.numberOfCourses = --this.numberOfCourses;
+                x++;
+            } else {
+                x++;
+            }
         }
     }
 

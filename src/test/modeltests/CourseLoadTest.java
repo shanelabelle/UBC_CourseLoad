@@ -22,7 +22,7 @@ class CourseLoadTest {
     void addCourse() {
         courseload.addCourse("CPSC 210");
 
-        assertEquals(courseload.getCourseList().get(0), "CPSC 210");
+        assertEquals(courseload.getCourseList().get(0).toString(), "CPSC 210");
     }
 
     @Test
@@ -30,7 +30,7 @@ class CourseLoadTest {
         courseload.addCourse("CPSC 210");
         courseload.removeCourse("CPSC 210");
 
-        assertSame(courseload.getCourseList().isEmpty(),"CPSC 210");
+        assertTrue(courseload.getCourseList().isEmpty());
     }
 
     @Test
@@ -48,7 +48,7 @@ class CourseLoadTest {
         int i = 0;
 
         while (i < coursecheck.size()){
-            assertEquals(courseload.getCourseList().get(i), coursecheck.get(i));
+            assertEquals(courseload.getCourseList().get(i).toString(), coursecheck.get(i));
             i++;
         }
     }
