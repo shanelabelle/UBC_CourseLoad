@@ -36,6 +36,7 @@ public class UserSetup {
         String major = scan.nextLine();
         this.user.setMajor(major);
     }
+
     // REQUIRES: none
     // MODIFIES: this
     // EFFECTS: Get's user to input courses they are currently enrolled in
