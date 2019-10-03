@@ -1,6 +1,5 @@
 package modeltests;
 
-import model.Course;
 import model.CourseLoad;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,24 +19,24 @@ class CourseLoadTest {
 
     @Test
     void addCourse() {
-        courseload.addCourse("CPSC 210");
+        courseload.addProject("CPSC 210");
 
-        assertEquals(courseload.getCourseList().get(0).toString(), "CPSC 210");
+        assertEquals(courseload.getProjectList().get(0).toString(), "CPSC 210");
     }
 
     @Test
     void removeCourse() {
-        courseload.addCourse("CPSC 210");
-        courseload.removeCourse("CPSC 210");
+        courseload.addProject("CPSC 210");
+        courseload.removeProject("CPSC 210");
 
-        assertTrue(courseload.getCourseList().isEmpty());
+        assertTrue(courseload.getProjectList().isEmpty());
     }
 
     @Test
     void getCourseList() {
-        courseload.addCourse("CPSC 210");
-        courseload.addCourse("PHYS 333");
-        courseload.addCourse("MATH 302");
+        courseload.addProject("CPSC 210");
+        courseload.addProject("PHYS 333");
+        courseload.addProject("MATH 302");
 
         ArrayList<String> coursecheck = new ArrayList();
 
@@ -48,7 +47,7 @@ class CourseLoadTest {
         int i = 0;
 
         while (i < coursecheck.size()){
-            assertEquals(courseload.getCourseList().get(i).toString(), coursecheck.get(i));
+            assertEquals(courseload.getProjectList().get(i).toString(), coursecheck.get(i));
             i++;
         }
     }

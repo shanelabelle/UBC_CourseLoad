@@ -3,7 +3,6 @@ package ui;
 import model.User;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserSetup implements Serializable {
@@ -70,7 +69,7 @@ public class UserSetup implements Serializable {
         while (!doneAddingCourses) {
             System.out.println("To add a course, please enter a course title:");
             String course = this.scan.nextLine();
-            this.user.getCourseLoad().addCourse(course);
+            this.user.getCourseLoad().addProject(course);
             System.out.println("You have added " + course + ", would you like to add another course?(Y/N)");
             String addcourse = this.scan.nextLine().toUpperCase();
 

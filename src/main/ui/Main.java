@@ -12,7 +12,6 @@ public class Main {
 
         // Requests user info to create new user and course load
         setup.getUserInfo();
-        setup.saveUser();
 
     }
 }

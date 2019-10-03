@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CourseLoad implements Serializable {
+public class CourseLoad implements Serializable, AcceptableProjectSet {
     private ArrayList<Course> courses;
     private int numberOfCourses;
     private String output;
@@ -25,7 +25,7 @@ public class CourseLoad implements Serializable {
     // REQUIRES: a string
     // MODIFIES: this
     // EFFECTS: adds new course to the user's courseload
-    public void addCourse(String courseName) {
+    public void addProject(String courseName) {
         Course newCourse = new Course(courseName);
 
         this.courses.add(newCourse);
@@ -35,12 +35,12 @@ public class CourseLoad implements Serializable {
     // REQUIRES: a string
     // MODIFIES: this
     // EFFECTS: removes new course to the user's courseload
-    public void removeCourse(String courseName) {
+    public void removeProject(String courseName) {
 
         int x = 0;
 
         while (x < this.courses.size()) {
-            if (this.courses.get(x).getCourseName().equals(courseName)) {
+            if (this.courses.get(x).getName().equals(courseName)) {
                 this.courses.remove(x);
                 this.numberOfCourses = --this.numberOfCourses;
                 x++;
@@ -53,7 +53,7 @@ public class CourseLoad implements Serializable {
     // REQUIRES: none
     // MODIFIES: none
     // EFFECTS: returns list of courses
-    public ArrayList getCourseList() {
+    public ArrayList getProjectList() {
         return this.courses;
     }
 

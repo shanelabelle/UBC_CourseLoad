@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Course implements Serializable {
+public class Course implements Serializable, AcceptableProject {
 
     private String courseName;
 
@@ -17,7 +17,7 @@ public class Course implements Serializable {
     // REQUIRES: none
     // MODIFIES: none
     // EFFECTS: returns course name
-    public String getCourseName() {
+    public String getName() {
         return this.courseName;
     }
 }
