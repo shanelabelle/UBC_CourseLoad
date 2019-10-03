@@ -1,15 +1,25 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CourseLoad {
+public class CourseLoad implements Serializable {
     private ArrayList<Course> courses;
     private int numberOfCourses;
+    private String output;
 
     public CourseLoad() {
         this.courses = new ArrayList<Course>();
         this.numberOfCourses = 0;
 
+    }
+
+    public String toString() {
+        output = "";
+        for (Course c: this.courses) {
+            output = output + c + " ";
+        }
+        return output;
     }
 
     // REQUIRES: a string

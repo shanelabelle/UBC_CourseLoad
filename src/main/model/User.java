@@ -1,11 +1,14 @@
 package model;
 
 
-public class User {
+import java.io.*;
+
+public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String major;
     private CourseLoad courseLoad;
+    private String userString;
 
 
     public User() {
@@ -13,6 +16,15 @@ public class User {
         this.firstName = "";
         this.lastName = "";
         this.major = "";
+
+    }
+
+    public String toString() {
+        userString = "Name: " + this.firstName + " " + this.lastName + "\n"
+                + "Major: " + this.major + "\n"
+                + "Courses: " + this.courseLoad;
+
+        return userString;
 
     }
 
@@ -64,4 +76,11 @@ public class User {
     public CourseLoad getCourseLoad() {
         return courseLoad;
     }
+
+    public void printCourses() {
+
+        System.out.println(this.courseLoad.toString());
+    }
+
+
 }

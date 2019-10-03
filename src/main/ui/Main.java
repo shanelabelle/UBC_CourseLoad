@@ -1,8 +1,10 @@
 package ui;
 
 
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 
         // Create's a new user setup interface
@@ -10,7 +12,7 @@ public class Main {
 
         // Requests user info to create new user and course load
         setup.getUserInfo();
-        setup.askForCourses();
+        setup.saveUser();
 
     }
 }
