@@ -3,6 +3,7 @@ package ui;
 import model.User;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserSetup implements Serializable {
@@ -26,7 +27,7 @@ public class UserSetup implements Serializable {
 
     // REQUIRES: none
     // MODIFIES: this
-    // EFFECTS: Asks the user for first name, last name, major.
+    // EFFECTS: sets up a new user or loads an existing one
     public void getUserInfo() throws IOException, ClassNotFoundException {
 
         this.welcomeMessage();
@@ -78,7 +79,7 @@ public class UserSetup implements Serializable {
             }
         }
 
-        this.user.printCourses();
+        this.user.courseString();
     }
 
     public void newUserSetup() {
@@ -100,27 +101,69 @@ public class UserSetup implements Serializable {
 
         File userFile = new File("./data/" + this.user.getLastName() + "_" + this.user.getFirstName() + ".txt");
         FileOutputStream output = new FileOutputStream(userFile);
-        ObjectOutputStream userObject = new ObjectOutputStream(output);
-        userObject.writeObject(this.user);
 
-        output.close();
-        userObject.close();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(output));
+
+        bw.write(this.user.getFirstName());
+        bw.newLine();
+        bw.write(this.user.getLastName());
+        bw.newLine();
+        bw.write(this.user.getMajor());
+        bw.newLine();
+        bw.write(this.user.courseString());
+        bw.close();
 
     }
 
-    public void loadUser(String username) throws IOException, ClassNotFoundException {
+    public void loadUser(String username) throws IOException {
+
+        ArrayList<String> inputList = fileToList(username);
+
+
+        this.user = inputListToUser(inputList);
+        System.out.println(this.user);
+    }
+
+    public ArrayList<String> fileToList(String username) throws IOException {
 
         String[] split = username.split(" ");
         String filename = split[1] + "_" + split[0];
 
         FileInputStream input = new FileInputStream(new File("./data/"
                 + filename + ".txt"));
-        ObjectInputStream userObject = new ObjectInputStream(input);
+        BufferedReader br = new BufferedReader(new InputStreamReader(input));
 
-        this.user = (User) userObject.readObject();
+        String thisLine = null;
+
+        ArrayList<String> lines = new ArrayList<String>();
+
+        while ((thisLine = br.readLine()) != null) {
+            lines.add(thisLine);
+
+        }
 
         input.close();
-        userObject.close();
+
+        return lines;
+
+
+
+    }
+
+    public User inputListToUser(ArrayList<String> inputList) {
+
+        User userToLoad = new User();
+        userToLoad.setFirstName(inputList.get(0));
+        userToLoad.setLastName(inputList.get(1));
+        userToLoad.setMajor(inputList.get(2));
+
+        String[] courses = inputList.get(3).split(", ");
+
+        for (String course: courses) {
+            userToLoad.getCourseLoad().addProject(course);
+        }
+
+        return userToLoad;
 
     }
 

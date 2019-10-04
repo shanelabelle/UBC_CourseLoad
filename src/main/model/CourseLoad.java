@@ -16,8 +16,15 @@ public class CourseLoad implements Serializable, AcceptableProjectSet {
 
     public String toString() {
         output = "";
-        for (Course c: this.courses) {
-            output = output + c + " ";
+        int counter = 0;
+        while (counter < this.courses.size()) {
+            if (counter == 0) {
+                output = this.courses.get(0).getName();
+                counter++;
+            } else {
+                output = output + ", " + this.courses.get(counter).getName();
+                counter++;
+            }
         }
         return output;
     }

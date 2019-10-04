@@ -77,9 +77,9 @@ public class User implements Serializable {
         return courseLoad;
     }
 
-    public void printCourses() {
+    public String courseString() {
 
-        System.out.println(this.courseLoad.toString());
+        return this.courseLoad.toString();
     }
 
 
