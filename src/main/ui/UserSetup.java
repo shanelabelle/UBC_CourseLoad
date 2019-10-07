@@ -82,9 +82,10 @@ public class UserSetup implements Serializable {
         this.user.courseString();
     }
 
-    public void newUserSetup() {
+    public void newUserSetup() throws IOException {
         this.askForPersonalInfo();
         this.askForCourses();
+        this.saveUser();
     }
 
     public void userLogin() throws IOException, ClassNotFoundException {
