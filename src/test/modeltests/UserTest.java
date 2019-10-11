@@ -50,7 +50,14 @@ class UserTest {
         assertEquals("Computer Science",user.getMajor());
     }
 
-    //@Test
-    //void getCourseLoad() {
-    //}
+    @Test
+    void courseStringTest() {
+        assertEquals(1,1);
+    }
+
+    @Test
+    void toStringTest() {
+        assertEquals(1,1);
+    }
+
 }

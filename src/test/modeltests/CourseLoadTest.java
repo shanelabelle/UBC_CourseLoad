@@ -18,25 +18,25 @@ class CourseLoadTest {
     }
 
     @Test
-    void addCourse() {
-        courseload.addProject("CPSC 210");
+    void addCourseTest() {
+        courseload.addCourse("CPSC 210");
 
-        assertEquals(courseload.getProjectList().get(0).toString(), "CPSC 210");
+        assertEquals(courseload.getCourseList().get(0).toString(), "CPSC 210");
     }
 
     @Test
-    void removeCourse() {
-        courseload.addProject("CPSC 210");
-        courseload.removeProject("CPSC 210");
+    void removeCourseTest() {
+        courseload.addCourse("CPSC 210");
+        courseload.removeCourse("CPSC 210");
 
-        assertTrue(courseload.getProjectList().isEmpty());
+        assertTrue(courseload.getCourseList().isEmpty());
     }
 
     @Test
-    void getCourseList() {
-        courseload.addProject("CPSC 210");
-        courseload.addProject("PHYS 333");
-        courseload.addProject("MATH 302");
+    void getCourseListTest() {
+        courseload.addCourse("CPSC 210");
+        courseload.addCourse("PHYS 333");
+        courseload.addCourse("MATH 302");
 
         ArrayList<String> coursecheck = new ArrayList();
 
@@ -47,12 +47,19 @@ class CourseLoadTest {
         int i = 0;
 
         while (i < coursecheck.size()){
-            assertEquals(courseload.getProjectList().get(i).toString(), coursecheck.get(i));
+            assertEquals(courseload.getCourseList().get(i).toString(), coursecheck.get(i));
             i++;
         }
     }
 
     @Test
-    void getNumberOfCourses() {
+    void toStringTest() {
+        courseload.addCourse("CPSC 210");
+        courseload.addCourse("PHYS 333");
+        courseload.addCourse("MATH 302");
+
+        assertEquals(courseload.toString(), "CPSC 210, PHYS 333, MATH 302");
+
     }
+
 }

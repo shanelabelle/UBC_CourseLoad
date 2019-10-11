@@ -70,7 +70,7 @@ public class UserSetup implements Serializable {
         while (!doneAddingCourses) {
             System.out.println("To add a course, please enter a course title:");
             String course = this.scan.nextLine();
-            this.user.getCourseLoad().addProject(course);
+            this.user.getCourseLoad().addCourse(course);
             System.out.println("You have added " + course + ", would you like to add another course?(Y/N)");
             String addcourse = this.scan.nextLine().toUpperCase();
 
@@ -161,7 +161,7 @@ public class UserSetup implements Serializable {
         String[] courses = inputList.get(3).split(", ");
 
         for (String course: courses) {
-            userToLoad.getCourseLoad().addProject(course);
+            userToLoad.getCourseLoad().addCourse(course);
         }
 
         return userToLoad;

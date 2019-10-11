@@ -32,7 +32,7 @@ public class CourseLoad extends BlockList {
     // REQUIRES: a string
     // MODIFIES: this
     // EFFECTS: adds new course to the user's courseload
-    public void addProject(String courseName) {
+    public void addCourse(String courseName) {
         Block newCourse = new Course(courseName);
 
         this.courses.add(newCourse);
@@ -42,7 +42,7 @@ public class CourseLoad extends BlockList {
     // REQUIRES: a string
     // MODIFIES: this
     // EFFECTS: removes new course to the user's courseload
-    public void removeProject(String courseName) {
+    public void removeCourse(String courseName) {
 
         int x = 0;
 
@@ -60,14 +60,14 @@ public class CourseLoad extends BlockList {
     // REQUIRES: none
     // MODIFIES: none
     // EFFECTS: returns list of courses
-    public ArrayList getProjectList() {
+    public ArrayList getCourseList() {
         return this.courses;
     }
 
     // REQUIRES: none
     // MODIFIES: none
     // EFFECTS: returns number of courses
-    public int getNumberOfCourses() {
-        return this.numberOfCourses;
-    }
+//    public int getNumberOfCourses() {
+//        return this.numberOfCourses;
+//    }
 }

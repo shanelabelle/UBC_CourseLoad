@@ -16,8 +16,13 @@ class CourseTest {
     }
 
     @Test
-    void getCourseName() {
+    void getCourseNameTest() {
         assertEquals("CPSC 210", course.getName());
 
+    }
+
+    @Test
+    void toStringTest() {
+        assertEquals(course.getName(),"CPSC 210");
     }
 }
