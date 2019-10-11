@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CourseLoad extends BlockList {
-    private ArrayList<Course> courses;
+    private ArrayList<Block> courses;
     private int numberOfCourses;
     private String output;
 
     public CourseLoad() {
-        this.courses = new ArrayList<Course>();
+        this.courses = new ArrayList<Block>();
         this.numberOfCourses = 0;
 
     }
@@ -33,7 +33,7 @@ public class CourseLoad extends BlockList {
     // MODIFIES: this
     // EFFECTS: adds new course to the user's courseload
     public void addProject(String courseName) {
-        Course newCourse = new Course(courseName);
+        Block newCourse = new Course(courseName);
 
         this.courses.add(newCourse);
         this.numberOfCourses = ++this.numberOfCourses;
