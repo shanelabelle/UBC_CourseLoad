@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CourseLoad implements Serializable, AcceptableProjectSet {
+public class CourseLoad extends BlockList {
     private ArrayList<Course> courses;
     private int numberOfCourses;
     private String output;

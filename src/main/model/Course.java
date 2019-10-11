@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Course implements Serializable, AcceptableProject {
+public class Course extends Block {
 
     private String courseName;
 
