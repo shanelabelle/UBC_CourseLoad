@@ -3,7 +3,7 @@ package model;
 
 import java.io.*;
 
-public class User implements Serializable {
+public class User {
     private String firstName;
     private String lastName;
     private String major;

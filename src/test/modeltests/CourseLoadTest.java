@@ -62,4 +62,31 @@ class CourseLoadTest {
 
     }
 
+    @Test
+    void getNumberOfCoursesTest() {
+        assertEquals(0,courseload.getNumberOfCourses());
+
+        courseload.addCourse("CPSC 210");
+        assertEquals(1,courseload.getNumberOfCourses());
+
+        courseload.addCourse("PHYS 333");
+        assertEquals(2,courseload.getNumberOfCourses());
+
+        courseload.removeAllCourses();
+        assertEquals(0,courseload.getNumberOfCourses());
+    }
+
+    @Test
+    void removeAllCoursesTest() {
+        courseload.addCourse("CPSC 210");
+        courseload.addCourse("PHYS 333");
+        courseload.addCourse("MATH 302");
+
+        courseload.removeAllCourses();
+
+        assertEquals(0,courseload.getNumberOfCourses());
+        assertTrue(courseload.getCourseList().isEmpty());
+
+    }
+
 }

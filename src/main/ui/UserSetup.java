@@ -1,12 +1,14 @@
 package ui;
 
+import exceptions.BadUserName;
+import exceptions.UserFileNotFound;
 import model.User;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UserSetup implements Serializable {
+public class UserSetup {
     private User user;
     private Scanner scan;
 
@@ -31,16 +33,36 @@ public class UserSetup implements Serializable {
     public void getUserInfo() throws IOException, ClassNotFoundException {
 
         this.welcomeMessage();
+        boolean goodUser = false;
 
-        System.out.println("To sign in enter (s) to create a new account enter (n):");
+        while (!goodUser) {
 
-        String loadOrNew = this.scan.nextLine();
-        if (loadOrNew.toUpperCase().equals("S")) {
-            this.userLogin();
-        } else {
-            this.newUserSetup();
+            System.out.println("To sign in enter (s) to create a new account enter (n):");
+
+            String loadOrNew = this.scan.nextLine();
+            if (loadOrNew.toUpperCase().equals("S")) {
+
+                try {
+                    this.userLogin();
+                    goodUser = true;
+                } catch (BadUserName e) {
+                    System.out.println("Sorry, that username doesn't exist, please make sure to type your first"
+                            + "name, followed by a space, then your last name.");
+                } catch (UserFileNotFound e) {
+                    System.out.println("Sorry, that username doesn't exist, please try again or create a new user.");
+                }
+
+            }
+
+            if (loadOrNew.toUpperCase().equals("N")) {
+                this.newUserSetup();
+                goodUser = true;
+
+            }
 
         }
+
+
 
 
     }
@@ -88,7 +110,7 @@ public class UserSetup implements Serializable {
         this.saveUser();
     }
 
-    public void userLogin() throws IOException, ClassNotFoundException {
+    public void userLogin() throws IOException, ClassNotFoundException, BadUserName, UserFileNotFound {
 
         System.out.println("Enter your first and last name (with a space between) to load your account:");
         String username = this.scan.nextLine();
@@ -116,7 +138,7 @@ public class UserSetup implements Serializable {
 
     }
 
-    public void loadUser(String username) throws IOException {
+    public void loadUser(String username) throws IOException, BadUserName, UserFileNotFound {
 
         ArrayList<String> inputList = fileToList(username);
 
@@ -125,28 +147,34 @@ public class UserSetup implements Serializable {
         System.out.println(this.user);
     }
 
-    public ArrayList<String> fileToList(String username) throws IOException {
+    public ArrayList<String> fileToList(String username) throws IOException, BadUserName, UserFileNotFound {
 
-        String[] split = username.split(" ");
-        String filename = split[1] + "_" + split[0];
+        try {
+            String[] split = username.split(" ");
+            String filename = split[1] + "_" + split[0];
 
-        FileInputStream input = new FileInputStream(new File("./data/"
-                + filename + ".txt"));
-        BufferedReader br = new BufferedReader(new InputStreamReader(input));
+            FileInputStream input = new FileInputStream(new File("./data/"
+                    + filename + ".txt"));
+            BufferedReader br = new BufferedReader(new InputStreamReader(input));
 
-        String thisLine = null;
+            String thisLine = null;
 
-        ArrayList<String> lines = new ArrayList<String>();
+            ArrayList<String> lines = new ArrayList<String>();
 
-        while ((thisLine = br.readLine()) != null) {
-            lines.add(thisLine);
+            while ((thisLine = br.readLine()) != null) {
+                lines.add(thisLine);
 
+            }
+
+            input.close();
+
+            return lines;
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new BadUserName();
+        } catch (FileNotFoundException e) {
+            throw new UserFileNotFound();
         }
-
-        input.close();
-
-        return lines;
-
 
 
     }

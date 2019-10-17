@@ -1,9 +1,8 @@
 package model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CourseLoad extends BlockList {
+public class CourseLoad {
     private ArrayList<Block> courses;
     private int numberOfCourses;
     private String output;
@@ -57,6 +56,11 @@ public class CourseLoad extends BlockList {
         }
     }
 
+    public void removeAllCourses() {
+        this.courses = new ArrayList<Block>();
+        this.numberOfCourses = 0;
+    }
+
     // REQUIRES: none
     // MODIFIES: none
     // EFFECTS: returns list of courses
@@ -64,10 +68,10 @@ public class CourseLoad extends BlockList {
         return this.courses;
     }
 
-    // REQUIRES: none
-    // MODIFIES: none
-    // EFFECTS: returns number of courses
-//    public int getNumberOfCourses() {
-//        return this.numberOfCourses;
-//    }
+//     REQUIRES: none
+//     MODIFIES: none
+//     EFFECTS: returns number of courses
+    public int getNumberOfCourses() {
+        return this.numberOfCourses;
+    }
 }
