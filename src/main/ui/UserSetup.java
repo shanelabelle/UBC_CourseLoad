@@ -41,30 +41,15 @@ public class UserSetup {
 
             String loadOrNew = this.scan.nextLine();
             if (loadOrNew.toUpperCase().equals("S")) {
-
-                try {
-                    this.userLogin();
-                    goodUser = true;
-                } catch (BadUserName e) {
-                    System.out.println("Sorry, that username doesn't exist, please make sure to type your first"
-                            + "name, followed by a space, then your last name.");
-                } catch (UserFileNotFound e) {
-                    System.out.println("Sorry, that username doesn't exist, please try again or create a new user.");
-                }
+                goodUser = this.userLogin();
 
             }
-
             if (loadOrNew.toUpperCase().equals("N")) {
                 this.newUserSetup();
                 goodUser = true;
-
             }
 
         }
-
-
-
-
     }
 
     public void askForPersonalInfo() {
@@ -110,12 +95,27 @@ public class UserSetup {
         this.saveUser();
     }
 
-    public void userLogin() throws IOException, ClassNotFoundException, BadUserName, UserFileNotFound {
+    public boolean userLogin() {
 
         System.out.println("Enter your first and last name (with a space between) to load your account:");
         String username = this.scan.nextLine();
 
-        loadUser(username);
+
+        try {
+            loadUser(username);
+            return true;
+        } catch (BadUserName e) {
+            System.out.println("Sorry, that username doesn't exist, please make sure to type your first"
+                    + "name, followed by a space, then your last name.");
+            return false;
+        } catch (UserFileNotFound e) {
+            System.out.println("Sorry, that username doesn't exist, please try again or create a new user.");
+            return false;
+        } catch (IOException e) {
+            System.out.println("Sorry, that username doesn't exist, please try again or create a new user.");
+            return false;
+
+        }
 
 
     }
