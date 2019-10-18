@@ -41,7 +41,9 @@ public class UserSetup {
 
             String loadOrNew = this.scan.nextLine();
             if (loadOrNew.toUpperCase().equals("S")) {
-                goodUser = this.userLogin();
+                System.out.println("Enter your first and last name (with a space between) to load your account:");
+                String username = this.scan.nextLine();
+                goodUser = this.userLogin(username);
 
             }
             if (loadOrNew.toUpperCase().equals("N")) {
@@ -95,10 +97,7 @@ public class UserSetup {
         this.saveUser();
     }
 
-    public boolean userLogin() {
-
-        System.out.println("Enter your first and last name (with a space between) to load your account:");
-        String username = this.scan.nextLine();
+    public boolean userLogin(String username) {
 
 
         try {
