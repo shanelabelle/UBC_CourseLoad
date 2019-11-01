@@ -5,12 +5,12 @@ import exceptions.UserFileNotFound;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import model.User;
-import model.CourseLoad;
-import model.Course;
+
 import ui.UserSetup;
 
 import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class ExceptionTest {
     UserSetup testUser;
@@ -25,9 +25,9 @@ public class ExceptionTest {
 
         try{
             this.testUser.loadUser("Shane Labelle");
-            System.out.println("Pass");
+
         } catch (Exception e) {
-            System.out.println("Fail");
+            fail();
 
         }
     }
@@ -36,14 +36,13 @@ public class ExceptionTest {
     void testUserLoginBadUser() {
         try {
             this.testUser.loadUser("bad");
-            System.out.println("Fail");
+            fail();
         } catch (BadUserName e) {
-            System.out.println("Pass");
 
         } catch (IOException e) {
-            System.out.println("Pass");
+
         } catch (UserFileNotFound e) {
-            System.out.println("Pass");
+
         }
     }
 
