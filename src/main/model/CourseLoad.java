@@ -7,10 +7,12 @@ public class CourseLoad {
     private int numberOfCourses;
     private String fileOutput;
     private HashMap<Block,ArrayList<Segment>> courses;
+    private User user;
 
-    public CourseLoad() {
+    public CourseLoad(User user) {
         this.courses = new HashMap<>();
         this.numberOfCourses = 0;
+        this.user = user;
 
     }
 
@@ -42,9 +44,10 @@ public class CourseLoad {
     // MODIFIES: this
     // EFFECTS: removes new course to the user's courseload
     public void removeCourse(String courseName) {
+        Block compareCourse = new Course(courseName);
 
         for (Block block : this.courses.keySet()) {
-            if (block.getName().equals(courseName)) {
+            if (block.equals(compareCourse)) {
                 this.courses.remove(block);
                 this.numberOfCourses = --this.numberOfCourses;
             }

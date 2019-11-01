@@ -1,6 +1,7 @@
 package modeltests;
 
 import model.CourseLoad;
+import model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +15,8 @@ class CourseLoadTest {
 
     @BeforeEach
     void setUp() {
-        courseload = new CourseLoad();
+        User guy = new User();
+        courseload = new CourseLoad(guy);
     }
 
     @Test

@@ -12,7 +12,7 @@ public class User {
 
 
     public User() {
-        this.courseLoad = new CourseLoad();
+        this.courseLoad = new CourseLoad(this);
         this.firstName = "";
         this.lastName = "";
         this.major = "";
