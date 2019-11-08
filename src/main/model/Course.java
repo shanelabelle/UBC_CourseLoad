@@ -8,10 +8,12 @@ import java.util.Objects;
 public class Course extends Block {
 
     private String courseName;
+    private ArrayList<Segment> segments;
 
     public Course(String name) {
 
         this.courseName = name;
+        this.segments = new ArrayList<>();
 
     }
 

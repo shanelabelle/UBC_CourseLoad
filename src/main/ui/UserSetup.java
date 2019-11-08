@@ -11,28 +11,22 @@ import java.util.Scanner;
 public class UserSetup {
     private User user;
     private Scanner scan;
+    private PrintedResponses print;
 
     public UserSetup() {
         this.user = new User();
         this.scan = new Scanner(System.in);
-    }
-
-    public void welcomeMessage() {
-        System.out.println("Hi there, welcome to CourseLoad 1.0!"
-                + "\n"
-                + "This is an App that lets you you manage and "
-                + "track your time throughout each semester at University."
-                + "\n"
-                + "To get things started, I need to know a little bit about yourself...");
+        this.print = new PrintedResponses();
 
     }
+
 
     // REQUIRES: none
     // MODIFIES: this
     // EFFECTS: sets up a new user or loads an existing one
     public void getUserInfo() throws IOException, ClassNotFoundException {
 
-        this.welcomeMessage();
+        print.welcomeMessage();
         boolean goodUser = false;
 
         while (!goodUser) {
