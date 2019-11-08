@@ -6,11 +6,11 @@ import java.util.HashMap;
 public class CourseLoad {
     private int numberOfCourses;
     private String fileOutput;
-    private HashMap<Block,ArrayList<Segment>> courses;
+    private ArrayList<Block> courses;
     private User user;
 
     public CourseLoad(User user) {
-        this.courses = new HashMap<>();
+        this.courses = new ArrayList<>();
         this.numberOfCourses = 0;
         this.user = user;
 
@@ -19,12 +19,13 @@ public class CourseLoad {
     public String toString() {
         fileOutput = "";
         int counter = 0;
-        for (Block block : this.courses.keySet()) {
+        while (counter < this.courses.size()) {
             if (counter == 0) {
-                fileOutput = block.getName();
+                fileOutput = this.courses.get(0).getName();
                 counter++;
             } else {
-                fileOutput = fileOutput + ", " + block.getName();
+                fileOutput = fileOutput + ", " + this.courses.get(counter).getName();
+                counter++;
             }
         }
         return fileOutput;
@@ -36,7 +37,7 @@ public class CourseLoad {
     public void addCourse(String courseName) {
         Block newCourse = new Course(courseName);
 
-        this.courses.put(newCourse,new ArrayList<>());
+        this.courses.add(newCourse);
         this.numberOfCourses = ++this.numberOfCourses;
     }
 
@@ -44,18 +45,23 @@ public class CourseLoad {
     // MODIFIES: this
     // EFFECTS: removes new course to the user's courseload
     public void removeCourse(String courseName) {
-        Block compareCourse = new Course(courseName);
 
-        for (Block block : this.courses.keySet()) {
-            if (block.equals(compareCourse)) {
-                this.courses.remove(block);
-                this.numberOfCourses = --this.numberOfCourses;
+        int counter = 0;
+
+        while (counter < this.courses.size()) {
+            if (this.courses.get(counter).getName().equals(courseName)) {
+                this.courses.remove(counter);
+                this.numberOfCourses--;
+                counter++;
+            } else {
+                counter++;
             }
         }
+
     }
 
     public void removeAllCourses() {
-        this.courses = new HashMap<>();
+        this.courses = new ArrayList<Block>();
         this.numberOfCourses = 0;
     }
 
@@ -63,11 +69,8 @@ public class CourseLoad {
     // MODIFIES: none
     // EFFECTS: returns list of courses
     public ArrayList getCourseList() {
-        ArrayList<String> courseList = new ArrayList();
-        for (Block block : this.courses.keySet()) {
-            courseList.add(block.getName());
-        }
-        return courseList;
+
+        return this.courses;
     }
 
 //     REQUIRES: none
