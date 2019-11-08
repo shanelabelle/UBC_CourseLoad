@@ -82,7 +82,7 @@ public class UserSetup {
             }
         }
 
-        this.user.courseString();
+        this.user.getCourseLoad().toString();
     }
 
     public void newUserSetup() throws IOException {
@@ -126,7 +126,7 @@ public class UserSetup {
         bw.newLine();
         bw.write(this.user.getMajor());
         bw.newLine();
-        bw.write(this.user.courseString());
+        bw.write(this.user.getCourseLoad().toString());
         bw.close();
 
     }

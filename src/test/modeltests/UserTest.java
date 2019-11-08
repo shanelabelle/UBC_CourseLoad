@@ -50,14 +50,15 @@ class UserTest {
         assertEquals("Computer Science",user.getMajor());
     }
 
-    @Test
-    void courseStringTest() {
-        assertEquals(1,1);
-    }
 
     @Test
     void toStringTest() {
-        assertEquals(1,1);
+        user.setFirstName("Shane");
+        user.setLastName("Labelle");
+        user.setMajor("Computer Science");
+        user.getCourseLoad().addCourse("CPSC 210");
+        assertEquals(user.toString(),"Name: Shane Labelle\nMajor: Computer Science\nCourses: CPSC 210");
+
     }
 
 }

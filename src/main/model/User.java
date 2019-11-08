@@ -77,10 +77,5 @@ public class User {
         return courseLoad;
     }
 
-    public String courseString() {
-
-        return this.courseLoad.toString();
-    }
-
 
 }

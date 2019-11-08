@@ -21,22 +21,6 @@ public class Course extends Block {
         return this.courseName;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Course course = (Course) o;
-        return courseName.equals(course.courseName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(courseName);
-    }
 
     // REQUIRES: none
     // MODIFIES: none
