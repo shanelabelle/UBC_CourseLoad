@@ -1,18 +1,18 @@
 package networktests;
 
-import network.FetchCourseTitle;
+import network.FetchCourseDescription;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class FetchCourseTitleTest {
-    FetchCourseTitle fetcher;
+public class FetchCourseDescriptionTest {
+    FetchCourseDescription fetcher;
 
     @BeforeEach
     public void setup(){
-        this.fetcher = new FetchCourseTitle();
+        this.fetcher = new FetchCourseDescription();
     }
 
     @Test

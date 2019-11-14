@@ -25,4 +25,9 @@ class CourseTest {
     void toStringTest() {
         assertEquals(course.getName(),"CPSC 210");
     }
+
+    @Test
+    void getCourseDescriptionTest() {
+        assertEquals("Software Construction",course.getCourseDescription());
+    }
 }

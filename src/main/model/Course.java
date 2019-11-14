@@ -1,20 +1,34 @@
 package model;
 
-import java.io.Serializable;
+import network.FetchCourseDescription;
+
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
 
 public class Course extends Block {
 
     private String courseName;
     private ArrayList<Segment> segments;
+    private String courseDescription;
 
     public Course(String name) {
 
         this.courseName = name;
         this.segments = new ArrayList<>();
+        setCourseDescription();
 
+    }
+
+    public String getCourseDescription() {
+        return this.courseDescription;
+    }
+
+    public void setCourseDescription() {
+        FetchCourseDescription fetcher = new FetchCourseDescription();
+        try {
+            this.courseDescription = fetcher.getCourseTitle(this.courseName);
+        } catch (Exception e) {
+            this.courseDescription = null;
+        }
     }
 
     public String toString() {

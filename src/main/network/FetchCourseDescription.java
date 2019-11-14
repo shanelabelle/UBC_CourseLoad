@@ -12,7 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class FetchCourseTitle {
+public class FetchCourseDescription {
 
     public String getCourseTitle(String courseName) throws IOException {
         String courseData = getCourseData(courseName);
