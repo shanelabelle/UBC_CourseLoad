@@ -2,8 +2,10 @@ package model;
 
 
 import java.io.*;
+import java.util.Observable;
+import java.util.Observer;
 
-public class User {
+public class User implements Observer {
     private String firstName;
     private String lastName;
     private String major;
@@ -16,6 +18,12 @@ public class User {
         this.firstName = "";
         this.lastName = "";
         this.major = "";
+
+    }
+
+    @Override
+    public void update(Observable observable, Object course) {
+        System.out.println(course + " has been added to your courseload!");
 
     }
 

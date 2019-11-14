@@ -2,8 +2,9 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Observable;
 
-public class CourseLoad {
+public class CourseLoad extends Observable {
     private int numberOfCourses;
     private String fileOutput;
     private ArrayList<Block> courses;
@@ -13,6 +14,7 @@ public class CourseLoad {
         this.courses = new ArrayList<>();
         this.numberOfCourses = 0;
         this.user = user;
+        addObserver(this.user);
 
     }
 
@@ -36,9 +38,12 @@ public class CourseLoad {
     // EFFECTS: adds new course to the user's courseload
     public void addCourse(String courseName) {
         Block newCourse = new Course(courseName);
-
-        this.courses.add(newCourse);
-        this.numberOfCourses = ++this.numberOfCourses;
+        if (!courses.contains(newCourse)) {
+            setChanged();
+            notifyObservers(newCourse);
+            this.courses.add(newCourse);
+            this.numberOfCourses = ++this.numberOfCourses;
+        }
     }
 
     // REQUIRES: a string
