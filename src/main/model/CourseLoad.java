@@ -38,6 +38,7 @@ public class CourseLoad extends Observable {
     // EFFECTS: adds new course to the user's courseload
     public void addCourse(String courseName) {
         Block newCourse = new Course(courseName);
+        //NEED TO OVERRIDE HASHCODE AND EQUALS ON COURSES TO GET THIS TO WORK
         if (!courses.contains(newCourse)) {
             setChanged();
             notifyObservers(newCourse);
