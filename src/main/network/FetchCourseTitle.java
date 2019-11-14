@@ -25,13 +25,13 @@ public class FetchCourseTitle {
     }
 
 
-    public String getCourseData(String coursename) throws IOException {
+    public String getCourseData(String courseName) throws IOException {
 
         String jsonString;
         BufferedReader br = null;
 
         try {
-            URL url = new URL(createCourseUrl(coursename));
+            URL url = new URL(createCourseUrl(courseName));
             br = new BufferedReader(new InputStreamReader(url.openStream()));
 
             String line;

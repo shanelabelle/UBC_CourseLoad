@@ -25,4 +25,11 @@ public class FetchCourseTitleTest {
         }
 
     }
+
+    @Test
+    void createCourseURLTest() {
+        String url = fetcher.createCourseUrl("CPSC 210");
+        assertEquals("https://ubc-courses-api.herokuapp.com/2019W/CPSC/210/", url);
+    }
+
 }
