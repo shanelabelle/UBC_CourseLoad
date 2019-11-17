@@ -10,12 +10,14 @@ public class LoginScreen extends JFrame {
     private JTextField userName;
     private JLabel userNameLabel;
     private JButton login;
+    private JButton newUser;
+    private JLabel or;
 
     public LoginScreen(String title) {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(loginScreen);
-        this.setSize(500,500);
+        this.setSize(550,550);
         this.setLocationRelativeTo(null);
 
         ImageIcon icon = new ImageIcon("images/Logo_blue.png");
