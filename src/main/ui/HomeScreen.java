@@ -6,10 +6,16 @@ import java.awt.event.ActionListener;
 
 public class HomeScreen extends JFrame {
     private JPanel homeScreen;
+    private JPanel secondScreen;
     private JTextField textField;
     private JButton firstButton;
     private JLabel label;
     private JLabel upperLabel;
+    private JPanel home;
+    private JTabbedPane tabbedPane1;
+    private JButton button1;
+    private JList list1;
+    private JProgressBar progressBar1;
 
     public HomeScreen(String title) {
         super(title);
@@ -21,10 +27,6 @@ public class HomeScreen extends JFrame {
         firstButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String lower = textField.getText();
-                String upper = lower.toUpperCase();
-                upperLabel.setText(upper);
-
             }
         });
     }
