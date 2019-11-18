@@ -20,6 +20,10 @@ public class UserSetup {
 
     }
 
+    public User getUser() {
+        return this.user;
+    }
+
 
     // REQUIRES: none
     // MODIFIES: this

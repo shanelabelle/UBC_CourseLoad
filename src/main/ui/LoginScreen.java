@@ -3,6 +3,7 @@ package ui;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 
 public class LoginScreen extends JFrame {
     private JPanel loginScreen;
@@ -12,6 +13,7 @@ public class LoginScreen extends JFrame {
     private JButton login;
     private JButton newUser;
     private JLabel or;
+    private UserSetup userSetup;
 
     public LoginScreen(String title) {
         super(title);
@@ -20,6 +22,9 @@ public class LoginScreen extends JFrame {
         this.setSize(550,550);
         this.setLocationRelativeTo(null);
 
+        // user setup methods
+        this.userSetup = new UserSetup();
+
         ImageIcon icon = new ImageIcon("images/Logo_blue.png");
         this.setIconImage(icon.getImage());
 
@@ -27,9 +32,17 @@ public class LoginScreen extends JFrame {
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                JFrame frame = new NewUserSetup("UBC Courseload");
-                frame.setVisible(true);
+                try {
+                    userSetup.loadUser(userName.getText());
+                    userNameLabel.setText("Welcome" + userSetup.getUser().getFirstName() + "!");
+                    setVisible(false);
+                    JFrame frame = new NewUserSetup("UBC Courseload");
+                    frame.setVisible(true);
+                } catch (Exception userNameError) {
+                    userNameLabel.setText("Sorry, that username does not exist. Please enter a valid username.");
+                    //add time sleep then return to the original username label
+                }
+
 
 
             }
