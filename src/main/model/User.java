@@ -22,8 +22,11 @@ public class User implements Observer {
     }
 
     @Override
-    public void update(Observable observable, Object course) {
-        System.out.println(course + " has been added to your courseload!");
+    public void update(Observable observable, Object arg) {
+        Course course = (Course) arg;
+        if (!(course.getName() == null)) {
+            System.out.println(course.getName() + " has been added to your courseload!");
+        }
 
     }
 
