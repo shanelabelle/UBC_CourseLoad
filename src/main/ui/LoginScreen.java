@@ -13,6 +13,7 @@ public class LoginScreen extends JFrame {
     private JButton login;
     private JButton newUser;
     private JLabel or;
+    private JProgressBar loadUserProgress;
     private UserSetup userSetup;
 
     public LoginScreen(String title) {
@@ -34,10 +35,10 @@ public class LoginScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     userSetup.loadUser(userName.getText());
+                    loadUserProgress.setIndeterminate(true);
+                    loadUserProgress.setVisible(true);
                     userNameLabel.setText("Welcome" + userSetup.getUser().getFirstName() + "!");
                     setVisible(false);
-                    JFrame frame = new NewUserSetup("UBC Courseload");
-                    frame.setVisible(true);
                 } catch (Exception userNameError) {
                     userNameLabel.setText("Sorry, that username does not exist. Please enter a valid username.");
                     //add time sleep then return to the original username label
@@ -45,6 +46,14 @@ public class LoginScreen extends JFrame {
 
 
 
+            }
+        });
+        newUser.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                JFrame frame = new NewUserSetup("UBC Courseload");
+                frame.setVisible(true);
             }
         });
     }
