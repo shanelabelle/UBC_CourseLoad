@@ -24,8 +24,16 @@ public class LoginScreen extends JFrame {
         this.setIconImage(icon.getImage());
 
 
+        login.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                JFrame frame = new NewUserSetup("UBC Courseload");
+                frame.setVisible(true);
 
 
+            }
+        });
     }
 
     public static void main(String[] args) {
