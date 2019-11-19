@@ -119,10 +119,11 @@ public class UserSetup {
 
     public void saveUser() throws IOException {
 
-        File userFile = new File("./data/" + this.user.getLastName() + "_" + this.user.getFirstName() + ".txt");
+        File userFile = new File("./data/" + this.user.getUsername() + ".txt");
         FileOutputStream output = new FileOutputStream(userFile);
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(output));
+
 
         bw.write(this.user.getFirstName());
         bw.newLine();
@@ -147,8 +148,7 @@ public class UserSetup {
     public ArrayList<String> fileToList(String username) throws IOException, BadUserName, UserFileNotFound {
 
         try {
-            String[] split = username.split(" ");
-            String filename = split[1] + "_" + split[0];
+            String filename = username;
 
             FileInputStream input = new FileInputStream(new File("./data/"
                     + filename + ".txt"));

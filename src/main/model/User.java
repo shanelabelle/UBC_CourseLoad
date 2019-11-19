@@ -6,6 +6,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class User implements Observer {
+    private String username;
     private String firstName;
     private String lastName;
     private String major;
@@ -36,6 +37,10 @@ public class User implements Observer {
 
     }
 
+    public void setUsername(String name) {
+        this.username = name;
+    }
+
     // REQUIRES: a string
     // MODIFIES: this
     // EFFECTS: sets first name of user
@@ -48,6 +53,10 @@ public class User implements Observer {
     // EFFECTS: sets last name of user
     public void setLastName(String name) {
         this.lastName = name;
+    }
+
+    public String getUsername() {
+        return this.username;
     }
 
     // REQUIRES: none
