@@ -46,6 +46,10 @@ public class LoginScreen extends JFrame {
                     userNameLabel.setText("Welcome" + userSetup.getUser().getFirstName() + "!");
                     setVisible(false);
                 } catch (Exception userNameError) {
+                    Color badUserColor = new Color(245,91,98);
+                    Font badUserFont = new Font("Open Sans", Font.BOLD,11);
+                    userNameLabel.setForeground(badUserColor);
+                    userNameLabel.setFont(badUserFont);
                     userNameLabel.setText("Sorry, that username does not exist. Please enter a valid username.");
                     //add time sleep then return to the original username label
                 }

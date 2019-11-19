@@ -2,12 +2,12 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ui.NewUserSetup">
   <grid id="27dc6" binding="newUserPanel" layout-manager="CardLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="624" height="409"/>
+      <xy x="20" y="20" width="624" height="469"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="60be3" layout-manager="GridLayoutManager" row-count="10" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="60be3" layout-manager="GridLayoutManager" row-count="12" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <card name="Card1"/>
@@ -21,7 +21,7 @@
         <children>
           <component id="1bebe" class="javax.swing.JLabel" binding="firstNameLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <alignmentY value="0.5"/>
@@ -34,7 +34,7 @@
           </component>
           <component id="75ea2" class="javax.swing.JTextField" binding="firstNameField">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="9" fill="0" indent="0" use-parent-layout="false">
+              <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
@@ -43,11 +43,12 @@
               <caretColor color="-2171170"/>
               <font name="Open Sans" size="11" style="1"/>
               <foreground color="-2171170"/>
+              <horizontalAlignment value="0"/>
             </properties>
           </component>
           <component id="9cde1" class="javax.swing.JLabel" binding="lastNameLabel">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
@@ -58,7 +59,7 @@
           </component>
           <component id="766ca" class="javax.swing.JTextField" binding="lastNameField">
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="9" fill="0" indent="0" use-parent-layout="false">
+              <grid row="5" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
@@ -67,22 +68,12 @@
               <caretColor color="-2171170"/>
               <font name="Open Sans" size="11" style="1"/>
               <foreground color="-2171170"/>
-            </properties>
-          </component>
-          <component id="e34f6" class="javax.swing.JLabel" binding="majorLabel">
-            <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-1"/>
-              <font name="Open Sans Light" size="11" style="0"/>
-              <foreground color="-5643526"/>
-              <text value="Major"/>
+              <horizontalAlignment value="0"/>
             </properties>
           </component>
           <component id="c2568" class="javax.swing.JTextField" binding="majorField">
             <constraints>
-              <grid row="5" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="9" fill="0" indent="0" use-parent-layout="false">
+              <grid row="7" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
@@ -91,22 +82,23 @@
               <caretColor color="-2171170"/>
               <font name="Open Sans" size="11" style="1"/>
               <foreground color="-2171170"/>
+              <horizontalAlignment value="0"/>
             </properties>
           </component>
           <component id="13d62" class="javax.swing.JLabel" binding="coursesLabel">
             <constraints>
-              <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
-              <font name="Open Sans" size="11" style="1"/>
+              <font name="Open Sans" size="12" style="0"/>
               <foreground color="-1312262"/>
               <text value="Courses (e.g. CPSC 210)"/>
             </properties>
           </component>
           <component id="92c4c" class="javax.swing.JTextField" binding="textField1" default-binding="true">
             <constraints>
-              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="0" indent="0" use-parent-layout="false">
+              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -117,7 +109,7 @@
           </component>
           <component id="2188c" class="javax.swing.JTextField" binding="textField2" default-binding="true">
             <constraints>
-              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -125,7 +117,7 @@
           </component>
           <component id="6a8c3" class="javax.swing.JTextField" binding="textField3" default-binding="true">
             <constraints>
-              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+              <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -133,7 +125,7 @@
           </component>
           <component id="d5e0c" class="javax.swing.JTextField" binding="textField4" default-binding="true">
             <constraints>
-              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+              <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -141,7 +133,7 @@
           </component>
           <component id="e1b93" class="javax.swing.JTextField" binding="textField5" default-binding="true">
             <constraints>
-              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -149,7 +141,7 @@
           </component>
           <component id="d65b1" class="javax.swing.JTextField" binding="textField6" default-binding="true">
             <constraints>
-              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -157,13 +149,51 @@
           </component>
           <component id="52e09" class="javax.swing.JButton" binding="createNewUser">
             <constraints>
-              <grid row="9" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-672161"/>
               <font name="Open Sans" size="11" style="1"/>
               <foreground color="-16768699"/>
               <text value="Create Account"/>
+            </properties>
+          </component>
+          <component id="11083" class="javax.swing.JLabel" binding="userNameLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <alignmentY value="0.5"/>
+              <background color="-1"/>
+              <focusable value="true"/>
+              <font name="Open Sans Light" size="11" style="0"/>
+              <foreground color="-5643526"/>
+              <text value="Username"/>
+            </properties>
+          </component>
+          <component id="1add0" class="javax.swing.JTextField" binding="userNameField">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16753242"/>
+              <caretColor color="-2171170"/>
+              <font name="Open Sans" size="11" style="1"/>
+              <foreground color="-2171170"/>
+              <horizontalAlignment value="0"/>
+            </properties>
+          </component>
+          <component id="e34f6" class="javax.swing.JLabel" binding="majorLabel">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="Open Sans Light" size="11" style="0"/>
+              <foreground color="-5643526"/>
+              <text value="Major"/>
             </properties>
           </component>
         </children>

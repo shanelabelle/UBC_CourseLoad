@@ -22,6 +22,8 @@ public class NewUserSetup extends JFrame {
     private JTextField textField5;
     private JTextField textField6;
     private JButton createNewUser;
+    private JLabel userNameLabel;
+    private JTextField userNameField;
 
     public NewUserSetup(String title) {
         super(title);
@@ -32,6 +34,7 @@ public class NewUserSetup extends JFrame {
 
         Color fieldColor = new Color(235,245,250);
 
+        userNameField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
         firstNameField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
         lastNameField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
         majorField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
