@@ -1,6 +1,7 @@
 package ui;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.TimeUnit;
@@ -29,6 +30,11 @@ public class LoginScreen extends JFrame {
         ImageIcon icon = new ImageIcon("images/Logo_blue.png");
         this.setIconImage(icon.getImage());
 
+        Color fieldColor = new Color(235,245,250);
+
+        userName.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+
+
 
         login.addActionListener(new ActionListener() {
             @Override
@@ -52,16 +58,18 @@ public class LoginScreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                JFrame frame = new NewUserSetup("UBC Courseload");
-                frame.setVisible(true);
+                JFrame newUserFrame = new NewUserSetup("UBC Courseload");
+                newUserFrame.setResizable(false);
+                newUserFrame.setVisible(true);
             }
         });
     }
 
     public static void main(String[] args) {
 
-        JFrame frame = new LoginScreen("UBC CourseLoad");
-        frame.setVisible(true);
+        JFrame loginFrame = new LoginScreen("UBC CourseLoad");
+        loginFrame.setResizable(false);
+        loginFrame.setVisible(true);
     }
 
     private void createUIComponents() {

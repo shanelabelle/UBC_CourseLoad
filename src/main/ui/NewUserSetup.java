@@ -30,7 +30,11 @@ public class NewUserSetup extends JFrame {
         this.setSize(550,550);
         this.setLocationRelativeTo(null);
 
-        firstNameField.setBorder(BorderFactory.createMatteBorder(0,0,1,0, Color.lightGray));
+        Color fieldColor = new Color(235,245,250);
+
+        firstNameField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        lastNameField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        majorField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
 
     }
 
