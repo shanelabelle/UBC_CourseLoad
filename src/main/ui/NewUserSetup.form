@@ -26,7 +26,7 @@
             <properties>
               <background color="-1"/>
               <foreground color="-1"/>
-              <text value="Firstname:"/>
+              <text value="Firstname"/>
             </properties>
           </component>
           <component id="75ea2" class="javax.swing.JTextField" binding="firstNameField">
@@ -36,9 +36,9 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-917761"/>
+              <background color="-16753242"/>
               <font name="Roboto Light" size="12" style="1"/>
-              <foreground color="-16768699"/>
+              <foreground color="-2171170"/>
             </properties>
           </component>
           <component id="9cde1" class="javax.swing.JLabel" binding="lastNameLabel">
@@ -48,7 +48,7 @@
             <properties>
               <background color="-1"/>
               <foreground color="-1"/>
-              <text value="Lastname:"/>
+              <text value="Lastname"/>
             </properties>
           </component>
           <component id="766ca" class="javax.swing.JTextField" binding="lastNameField">
@@ -92,7 +92,7 @@
             <properties>
               <background color="-1"/>
               <foreground color="-1"/>
-              <text value="Courses (e.g. CPSC 210):"/>
+              <text value="Courses (e.g. CPSC 210)"/>
             </properties>
           </component>
           <component id="92c4c" class="javax.swing.JTextField" binding="textField1" default-binding="true">

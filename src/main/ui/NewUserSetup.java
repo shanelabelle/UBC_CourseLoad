@@ -1,6 +1,9 @@
 package ui;
 
+import com.sun.webkit.ColorChooser;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class NewUserSetup extends JFrame {
 
@@ -26,6 +29,8 @@ public class NewUserSetup extends JFrame {
         this.setContentPane(newUserPanel);
         this.setSize(550,550);
         this.setLocationRelativeTo(null);
+
+        firstNameField.setBorder(BorderFactory.createMatteBorder(0,0,1,0, Color.lightGray));
 
     }
 
