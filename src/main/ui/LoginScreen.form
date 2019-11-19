@@ -70,6 +70,7 @@
           <background color="-672161"/>
           <focusPainted value="false"/>
           <font name="Product Sans" size="11" style="1"/>
+          <foreground color="-16768699"/>
           <label value="Login"/>
           <text value="Login"/>
         </properties>
