@@ -17,7 +17,7 @@
     <children>
       <component id="ad0a6" class="javax.swing.JLabel" binding="logo">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false">
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="1" fill="0" indent="0" use-parent-layout="false">
             <maximum-size width="-1" height="500"/>
           </grid>
         </constraints>
@@ -32,7 +32,7 @@
       </component>
       <component id="ce8ee" class="javax.swing.JTextField" binding="userName">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -53,7 +53,7 @@
       </component>
       <component id="35fcb" class="javax.swing.JLabel" binding="userNameLabel">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Open Sans Light" size="11" style="0"/>
@@ -64,7 +64,7 @@
       </component>
       <component id="866f2" class="javax.swing.JButton" binding="login">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <autoscrolls value="false"/>
@@ -78,7 +78,7 @@
       </component>
       <component id="79cf6" class="javax.swing.JButton" binding="newUser">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16768699"/>
@@ -93,7 +93,7 @@
       </component>
       <component id="50cfe" class="javax.swing.JLabel" binding="or">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-1"/>
@@ -104,7 +104,7 @@
       </component>
       <component id="1fe5" class="javax.swing.JProgressBar" binding="loadUserProgress">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <autoscrolls value="false"/>

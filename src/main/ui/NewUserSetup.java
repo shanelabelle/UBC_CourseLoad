@@ -102,6 +102,8 @@ public class NewUserSetup extends JFrame {
                     if (userFile.exists()) {
                         throw new UserAlreadyExists();
                     }
+
+                    //Builds user data structure
                     errorLabel.setVisible(false);
                     newUserSetup.saveUser();
                     System.out.println(user);
