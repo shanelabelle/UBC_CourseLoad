@@ -248,7 +248,7 @@
           </component>
           <component id="cc5fb" class="javax.swing.JLabel" binding="errorLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <alignmentY value="0.5"/>
@@ -257,7 +257,7 @@
               <font name="Open Sans" size="11" style="1"/>
               <foreground color="-4503991"/>
               <text value=""/>
-              <visible value="false"/>
+              <visible value="true"/>
             </properties>
           </component>
         </children>

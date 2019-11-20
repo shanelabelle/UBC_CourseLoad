@@ -59,44 +59,44 @@ public class NewUserSetup extends JFrame {
                 try {
                     newUserSetup = new UserSetup();
                     user = newUserSetup.getUser();
-                    if ((userNameLabel.getText() == "")) {
+                    if ((userNameField.getText().isEmpty())) {
                         throw new EmptyUserField();
                     } else {
                         user.setUsername(userNameField.getText());
                     }
-                    if ((firstNameLabel.getText() == "")) {
+                    if ((firstNameField.getText().isEmpty())) {
                         throw new EmptyFirstNameField();
                     } else {
                         user.setFirstName(firstNameField.getText());
                     }
-                    if ((lastNameLabel.getText() == "")) {
+                    if ((lastNameField.getText().isEmpty())) {
                         throw new EmptyLastNameField();
                     } else {
                         user.setLastName(lastNameField.getText());
                     }
-                    if ((majorLabel.getText() == "")) {
+                    if ((majorField.getText().isEmpty())) {
                         throw new EmptyMajorField();
                     } else {
                         user.setMajor(majorField.getText());
                     }
 
                     userCourses = user.getCourseLoad();
-                    if (!(course1.getText() == "")) {
+                    if (!(course1.getText().isEmpty())) {
                         userCourses.addCourse(course1.getText());
                     }
-                    if (!(course2.getText() == "")) {
+                    if (!(course2.getText().isEmpty())) {
                         userCourses.addCourse(course2.getText());
                     }
-                    if (!(course3.getText() == "")) {
+                    if (!(course3.getText().isEmpty())) {
                         userCourses.addCourse(course3.getText());
                     }
-                    if (!(course4.getText() == "")) {
+                    if (!(course4.getText().isEmpty())) {
                         userCourses.addCourse(course4.getText());
                     }
-                    if (!(course5.getText() == "")) {
+                    if (!(course5.getText().isEmpty())) {
                         userCourses.addCourse(course5.getText());
                     }
-                    if (!(course6.getText() == "")) {
+                    if (!(course6.getText().isEmpty())) {
                         userCourses.addCourse(course6.getText());
                     }
                     newUserSetup.saveUser();
@@ -126,5 +126,9 @@ public class NewUserSetup extends JFrame {
 
         JFrame frame = new NewUserSetup("UBC CourseLoad");
         frame.setVisible(true);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
