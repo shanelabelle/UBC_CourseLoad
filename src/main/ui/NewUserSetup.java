@@ -1,9 +1,6 @@
 package ui;
 
-import exceptions.EmptyFirstNameField;
-import exceptions.EmptyLastNameField;
-import exceptions.EmptyMajorField;
-import exceptions.EmptyUserField;
+import exceptions.*;
 import model.CourseLoad;
 import model.User;
 
@@ -13,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class NewUserSetup extends JFrame {
 
@@ -57,13 +55,14 @@ public class NewUserSetup extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+
                     newUserSetup = new UserSetup();
                     user = newUserSetup.getUser();
                     if ((userNameField.getText().isEmpty())) {
                         throw new EmptyUserField();
                     } else {
                         user.setUsername(userNameField.getText());
-                    }
+                        }
                     if ((firstNameField.getText().isEmpty())) {
                         throw new EmptyFirstNameField();
                     } else {
@@ -99,10 +98,17 @@ public class NewUserSetup extends JFrame {
                     if (!(course6.getText().isEmpty())) {
                         userCourses.addCourse(course6.getText());
                     }
+                    File userFile = new File("./data/" + userNameField.getText() + ".txt");
+                    if (userFile.exists()) {
+                        throw new UserAlreadyExists();
+                    }
+
+                    //Builds user data structure
+                    errorLabel.setVisible(false);
                     newUserSetup.saveUser();
                     System.out.println(user);
                 } catch (IOException io) {
-                    userNameLabel.setText("Sorry, an error occured while "
+                    userNameLabel.setText("Sorry, an error occurred while "
                             + "setting up your account, please try again.");
                 } catch (EmptyUserField emptyUser) {
                     errorLabel.setVisible(true);
@@ -117,6 +123,10 @@ public class NewUserSetup extends JFrame {
                 } catch (EmptyMajorField emptyMajorField) {
                     errorLabel.setVisible(true);
                     errorLabel.setText("Please fill out the major field.");
+                } catch (UserAlreadyExists alreadyExists) {
+                    errorLabel.setVisible(true);
+                    errorLabel.setText("Sorry, that username already exists."
+                            + " Please enter a different username.");
                 }
             }
         });
@@ -126,9 +136,5 @@ public class NewUserSetup extends JFrame {
 
         JFrame frame = new NewUserSetup("UBC CourseLoad");
         frame.setVisible(true);
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }

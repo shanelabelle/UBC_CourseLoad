@@ -21,6 +21,7 @@ public class LoginScreen extends JFrame {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(loginScreen);
+        this.pack();
         this.setSize(550,550);
         this.setLocationRelativeTo(null);
 

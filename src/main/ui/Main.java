@@ -1,18 +1,32 @@
 package ui;
 
+import javax.swing.*;
+import java.awt.*;
 
-import java.io.IOException;
+public class Main extends JFrame {
+    private JPanel background;
+    private JButton homeButton;
+    private JLabel homeIcon;
+    private JLabel logo;
 
-public class Main {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public Main(String title) {
+        super(title);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setContentPane(background);
+        this.pack();
+        this.setSize(550,550);
+        this.setLocationRelativeTo(null);
 
 
-        // Create's a new user setup interface
-        UserSetup setup = new UserSetup();
+    }
 
-        // Requests user info to create new user and course load
-        setup.getUserInfo();
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 
+    public static void main(String[] args) {
 
+        JFrame mainFrame = new Main("UBC CourseLoad");
+        mainFrame.setVisible(true);
     }
 }
