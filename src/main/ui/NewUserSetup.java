@@ -1,9 +1,6 @@
 package ui;
 
-import exceptions.EmptyFirstNameField;
-import exceptions.EmptyLastNameField;
-import exceptions.EmptyMajorField;
-import exceptions.EmptyUserField;
+import exceptions.*;
 import model.CourseLoad;
 import model.User;
 
@@ -13,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class NewUserSetup extends JFrame {
 
@@ -57,48 +55,54 @@ public class NewUserSetup extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+
                     newUserSetup = new UserSetup();
                     user = newUserSetup.getUser();
-                    if ((userNameLabel.getText() == "")) {
+                    if ((userNameField.getText().isEmpty())) {
                         throw new EmptyUserField();
                     } else {
                         user.setUsername(userNameField.getText());
-                    }
-                    if ((firstNameLabel.getText() == "")) {
+                        }
+                    if ((firstNameField.getText().isEmpty())) {
                         throw new EmptyFirstNameField();
                     } else {
                         user.setFirstName(firstNameField.getText());
                     }
-                    if ((lastNameLabel.getText() == "")) {
+                    if ((lastNameField.getText().isEmpty())) {
                         throw new EmptyLastNameField();
                     } else {
                         user.setLastName(lastNameField.getText());
                     }
-                    if ((majorLabel.getText() == "")) {
+                    if ((majorField.getText().isEmpty())) {
                         throw new EmptyMajorField();
                     } else {
                         user.setMajor(majorField.getText());
                     }
 
                     userCourses = user.getCourseLoad();
-                    if (!(course1.getText() == "")) {
+                    if (!(course1.getText().isEmpty())) {
                         userCourses.addCourse(course1.getText());
                     }
-                    if (!(course2.getText() == "")) {
+                    if (!(course2.getText().isEmpty())) {
                         userCourses.addCourse(course2.getText());
                     }
-                    if (!(course3.getText() == "")) {
+                    if (!(course3.getText().isEmpty())) {
                         userCourses.addCourse(course3.getText());
                     }
-                    if (!(course4.getText() == "")) {
+                    if (!(course4.getText().isEmpty())) {
                         userCourses.addCourse(course4.getText());
                     }
-                    if (!(course5.getText() == "")) {
+                    if (!(course5.getText().isEmpty())) {
                         userCourses.addCourse(course5.getText());
                     }
-                    if (!(course6.getText() == "")) {
+                    if (!(course6.getText().isEmpty())) {
                         userCourses.addCourse(course6.getText());
                     }
+                    File userFile = new File("./data/" + userNameField.getText() + ".txt");
+                    if (userFile.exists()) {
+                        throw new UserAlreadyExists();
+                    }
+                    errorLabel.setVisible(false);
                     newUserSetup.saveUser();
                     System.out.println(user);
                 } catch (IOException io) {
@@ -117,6 +121,10 @@ public class NewUserSetup extends JFrame {
                 } catch (EmptyMajorField emptyMajorField) {
                     errorLabel.setVisible(true);
                     errorLabel.setText("Please fill out the major field.");
+                } catch (UserAlreadyExists alreadyExists) {
+                    errorLabel.setVisible(true);
+                    errorLabel.setText("Sorry, that username already exists."
+                            + " Please enter a different username.");
                 }
             }
         });
