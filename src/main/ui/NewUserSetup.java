@@ -106,7 +106,7 @@ public class NewUserSetup extends JFrame {
                     newUserSetup.saveUser();
                     System.out.println(user);
                 } catch (IOException io) {
-                    userNameLabel.setText("Sorry, an error occured while "
+                    userNameLabel.setText("Sorry, an error occurred while "
                             + "setting up your account, please try again.");
                 } catch (EmptyUserField emptyUser) {
                     errorLabel.setVisible(true);
