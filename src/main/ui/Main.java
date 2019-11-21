@@ -1,13 +1,25 @@
 package ui;
 
+import javax.smartcardio.Card;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Main extends JFrame {
     private JPanel background;
     private JButton homeButton;
     private JLabel homeIcon;
     private JLabel logo;
+    private JButton coursesButton;
+    private JLabel coursesLabel;
+    private JPanel homePanel;
+    private JPanel coursesPanel;
+    private JPanel pieChartPanel;
+    private JPanel studyTrackerPanel;
+    private JPanel sideBarPanel;
+    private JPanel mainPanel;
+    private CardLayout screens;
 
     public Main(String title) {
         super(title);
@@ -17,7 +29,23 @@ public class Main extends JFrame {
         this.setSize(550,550);
         this.setLocationRelativeTo(null);
 
+        screens = (CardLayout) (mainPanel.getLayout());
 
+
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                screens.show(mainPanel,"homeCard");
+
+            }
+        });
+        coursesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                screens.show(mainPanel,"coursesCard");
+
+            }
+        });
     }
 
     private void createUIComponents() {
