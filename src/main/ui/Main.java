@@ -4,6 +4,7 @@ import model.Block;
 import model.User;
 import org.knowm.xchart.PieChart;
 import org.knowm.xchart.PieChartBuilder;
+import org.knowm.xchart.XChartPanel;
 
 import javax.smartcardio.Card;
 import javax.swing.*;
@@ -38,6 +39,7 @@ public class Main extends JFrame {
     private JPanel courseChart1;
     private ArrayList<JButton> courseButtonList;
     private ArrayList<String> courseNames;
+    private CardLayout courseCards;
 
     public Main(String title, User user) {
         super(title);
@@ -48,6 +50,7 @@ public class Main extends JFrame {
         this.setLocationRelativeTo(null);
 
         screens = (CardLayout) (mainPanel.getLayout());
+        courseCards = (CardLayout) (pieChartPanel.getLayout());
 
         userNameLabel.setText(user.getFirstName() + " " + user.getLastName());
         majorLabel.setText(user.getMajor());
@@ -75,6 +78,14 @@ public class Main extends JFrame {
             courseButtonList.get(counter).setText(courseNames.get(counter));
             counter = counter + 1;
         }
+
+        PieChart chart = new PieChart(400,400);
+        chart.addSeries("Final",24);
+        chart.addSeries("Midterm", 10);
+        JPanel pieChart1 = new XChartPanel<PieChart>(chart);
+        courseChart1.add(pieChart1);
+
+        courseCards.show(pieChartPanel,"courseChart1");
 
 
 
