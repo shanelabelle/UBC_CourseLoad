@@ -2,6 +2,8 @@ package ui;
 
 import model.Block;
 import model.User;
+import org.knowm.xchart.PieChart;
+import org.knowm.xchart.PieChartBuilder;
 
 import javax.smartcardio.Card;
 import javax.swing.*;
@@ -73,6 +75,7 @@ public class Main extends JFrame {
             courseButtonList.get(counter).setText(courseNames.get(counter));
             counter = counter + 1;
         }
+
 
 
 
