@@ -1,5 +1,6 @@
 package ui;
 
+import model.Block;
 import model.User;
 
 import javax.smartcardio.Card;
@@ -8,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Main extends JFrame {
     private JPanel background;
@@ -25,6 +27,14 @@ public class Main extends JFrame {
     private JLabel courseLoadLabel;
     private JLabel dashboardLabel;
     private CardLayout screens;
+    private JButton courseButton0;
+    private JButton courseButton1;
+    private JButton courseButton2;
+    private JButton courseButton3;
+    private JButton courseButton4;
+    private JButton courseButton5;
+    private ArrayList<JButton> courseButtonList;
+    private ArrayList<String> courseNames;
 
     public Main(String title, User user) {
         super(title);
@@ -40,6 +50,30 @@ public class Main extends JFrame {
         majorLabel.setText(user.getMajor());
 
         courseLoadLabel.setBorder(new EmptyBorder(5, 10, 5, 10));
+
+
+        courseButtonList = new ArrayList<>();
+        courseNames = new ArrayList<>();
+        courseButtonList.add(courseButton0);
+        courseButtonList.add(courseButton1);
+        courseButtonList.add(courseButton2);
+        courseButtonList.add(courseButton3);
+        courseButtonList.add(courseButton4);
+        courseButtonList.add(courseButton5);
+
+        for (Block block : user.getCourseLoad()) {
+            courseNames.add(block.getName());
+        }
+
+        int counter = 0;
+
+        while (counter < courseNames.size()) {
+            courseButtonList.get(counter).setVisible(true);
+            courseButtonList.get(counter).setText(courseNames.get(counter));
+            counter = counter + 1;
+        }
+
+
 
 
         homeButton.addActionListener(new ActionListener() {

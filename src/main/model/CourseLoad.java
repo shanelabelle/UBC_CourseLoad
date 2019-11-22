@@ -2,9 +2,10 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Observable;
 
-public class CourseLoad extends Observable {
+public class CourseLoad extends Observable implements Iterable<Block> {
     private int numberOfCourses;
     private String fileOutput;
     private ArrayList<Block> courses;
@@ -84,5 +85,10 @@ public class CourseLoad extends Observable {
 //     EFFECTS: returns number of courses
     public int getNumberOfCourses() {
         return this.numberOfCourses;
+    }
+
+    @Override
+    public Iterator<Block> iterator() {
+        return this.courses.iterator();
     }
 }
