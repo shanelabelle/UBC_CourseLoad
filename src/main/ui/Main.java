@@ -8,6 +8,7 @@ import org.knowm.xchart.XChartPanel;
 
 import javax.smartcardio.Card;
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -82,9 +83,11 @@ public class Main extends JFrame {
         PieChart chart = new PieChart(400,400);
         chart.addSeries("Final",24);
         chart.addSeries("Midterm", 10);
+        chart.getStyler().setChartBackgroundColor(Color.WHITE);
+        chart.getStyler().setPlotBorderColor(Color.WHITE);
+        chart.getStyler().setChartTitleBoxVisible(false);
         JPanel pieChart1 = new XChartPanel<PieChart>(chart);
         courseChart1.add(pieChart1);
-
         courseCards.show(pieChartPanel,"courseChart1");
 
 

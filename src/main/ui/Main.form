@@ -210,6 +210,8 @@
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-1"/>
+          <foreground color="-1"/>
           <opaque value="true"/>
           <visible value="true"/>
         </properties>
@@ -222,7 +224,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
-              <foreground color="-917761"/>
+              <foreground color="-1"/>
             </properties>
             <border type="none"/>
             <children>
@@ -287,7 +289,11 @@
             <constraints>
               <card name="coursesCard"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-1"/>
+              <focusable value="false"/>
+              <foreground color="-1"/>
+            </properties>
             <border type="none"/>
             <children>
               <grid id="4f316" binding="pieChartPanel" layout-manager="CardLayout" hgap="0" vgap="0">
@@ -296,6 +302,9 @@
                 </constraints>
                 <properties>
                   <background color="-1"/>
+                  <focusable value="false"/>
+                  <foreground color="-1"/>
+                  <opaque value="true"/>
                 </properties>
                 <border type="none"/>
                 <children>
@@ -305,7 +314,9 @@
                     </constraints>
                     <properties>
                       <background color="-1"/>
+                      <focusable value="false"/>
                       <foreground color="-1"/>
+                      <opaque value="true"/>
                       <preferredSize width="-1" height="-1"/>
                     </properties>
                     <border type="none"/>
@@ -318,7 +329,10 @@
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-16753242"/>
+                  <foreground color="-53382"/>
+                </properties>
                 <border type="none"/>
                 <children/>
               </grid>
