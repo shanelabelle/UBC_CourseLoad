@@ -3,6 +3,8 @@ package model;
 import network.FetchCourseDescription;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Course extends Block {
 
@@ -41,5 +43,28 @@ public class Course extends Block {
     // EFFECTS: returns course name
     public String getName() {
         return this.courseName;
+    }
+
+    public void addSegment(Segment segment) {
+
+        if (!this.segments.contains(segment)) {
+            segments.add(segment);
+        }
+    }
+
+    public void removeSegment(Segment segment) {
+
+        if (this.segments.contains(segment)) {
+            this.segments.remove(segment);
+        }
+    }
+
+    public void sortSegments() {
+        this.segments.sort(Segment::compareTo);
+        Collections.sort(this.segments, Collections.reverseOrder());
+    }
+
+    public ArrayList<Segment> getSegments() {
+        return this.segments;
     }
 }
