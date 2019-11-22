@@ -13,7 +13,7 @@
       <grid id="effd5" binding="sideBarPanel" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="10" bottom="10" right="0"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="true"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="1" fill="0" indent="0" use-parent-layout="true"/>
         </constraints>
         <properties>
           <background color="-16753242"/>
@@ -34,7 +34,7 @@
           </component>
           <component id="73233" class="javax.swing.JButton" binding="homeButton">
             <constraints>
-              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-16753242"/>
@@ -45,34 +45,15 @@
               <foreground color="-917761"/>
               <hideActionText value="false"/>
               <horizontalAlignment value="0"/>
-              <horizontalTextPosition value="0"/>
+              <horizontalTextPosition value="4"/>
+              <icon value="resources/home_Icon_15.png"/>
+              <iconTextGap value="15"/>
               <text value="Home"/>
-            </properties>
-          </component>
-          <component id="bc85c" class="javax.swing.JLabel" binding="homeIcon">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <horizontalAlignment value="4"/>
-              <icon value="resources/Home_Icon_20.png"/>
-              <text value=""/>
-              <verticalAlignment value="0"/>
-            </properties>
-          </component>
-          <component id="8d68a" class="javax.swing.JLabel" binding="coursesLabel">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <horizontalAlignment value="4"/>
-              <icon value="resources/course_icon_20.png"/>
-              <text value=""/>
             </properties>
           </component>
           <component id="3712e" class="javax.swing.JButton" binding="coursesButton">
             <constraints>
-              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-16753242"/>
@@ -83,12 +64,15 @@
               <foreground color="-917761"/>
               <hideActionText value="false"/>
               <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="4"/>
+              <icon value="resources/course_icon_15.png"/>
+              <iconTextGap value="15"/>
               <text value="Courses"/>
             </properties>
           </component>
           <vspacer id="d1602">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
                 <preferred-size width="-1" height="10"/>
               </grid>
             </constraints>
@@ -105,8 +89,8 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="b7d05" binding="homePanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <grid id="b7d05" binding="homePanel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="30" left="10" bottom="10" right="10"/>
             <constraints>
               <card name="homeCard"/>
             </constraints>
@@ -118,30 +102,56 @@
             <children>
               <component id="4a317" class="javax.swing.JLabel" binding="userNameLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-16753242"/>
                   <enabled value="true"/>
-                  <font name="Roboto Thin" size="36" style="1"/>
+                  <font name="Open Sans" size="36" style="1"/>
                   <foreground color="-16753242"/>
                   <text value=""/>
                 </properties>
               </component>
               <vspacer id="2602f">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
               <component id="b6bb6" class="javax.swing.JLabel" binding="majorLabel">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="3" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-16753242"/>
-                  <font name="Roboto Thin" size="28" style="0"/>
+                  <font name="Open Sans Light" size="28" style="0"/>
                   <foreground color="-16753242"/>
                   <text value=""/>
+                </properties>
+              </component>
+              <component id="44cd" class="javax.swing.JLabel" binding="courseLoadLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="3" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16753242"/>
+                  <enabled value="true"/>
+                  <font name="Open Sans SemiBold" size="36" style="1"/>
+                  <foreground color="-1"/>
+                  <horizontalTextPosition value="10"/>
+                  <opaque value="true"/>
+                  <text value="Fall 2019"/>
+                </properties>
+              </component>
+              <component id="4d426" class="javax.swing.JLabel" binding="dashboardLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="3" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16753242"/>
+                  <enabled value="true"/>
+                  <font name="Open Sans Light" size="20" style="0"/>
+                  <foreground color="-16753242"/>
+                  <text value="Recent Activity"/>
                 </properties>
               </component>
             </children>

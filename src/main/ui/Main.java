@@ -4,6 +4,7 @@ import model.User;
 
 import javax.smartcardio.Card;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,10 +12,8 @@ import java.awt.event.ActionListener;
 public class Main extends JFrame {
     private JPanel background;
     private JButton homeButton;
-    private JLabel homeIcon;
     private JLabel logo;
     private JButton coursesButton;
-    private JLabel coursesLabel;
     private JPanel homePanel;
     private JPanel coursesPanel;
     private JPanel pieChartPanel;
@@ -23,6 +22,8 @@ public class Main extends JFrame {
     private JPanel mainPanel;
     private JLabel userNameLabel;
     private JLabel majorLabel;
+    private JLabel courseLoadLabel;
+    private JLabel dashboardLabel;
     private CardLayout screens;
 
     public Main(String title, User user) {
@@ -37,6 +38,8 @@ public class Main extends JFrame {
 
         userNameLabel.setText(user.getFirstName() + " " + user.getLastName());
         majorLabel.setText(user.getMajor());
+
+        courseLoadLabel.setBorder(new EmptyBorder(5, 10, 5, 10));
 
 
         homeButton.addActionListener(new ActionListener() {
