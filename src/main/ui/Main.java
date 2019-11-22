@@ -33,6 +33,7 @@ public class Main extends JFrame {
     private JButton courseButton3;
     private JButton courseButton4;
     private JButton courseButton5;
+    private JPanel courseChart1;
     private ArrayList<JButton> courseButtonList;
     private ArrayList<String> courseNames;
 

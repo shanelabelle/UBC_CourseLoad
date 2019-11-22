@@ -1,5 +1,7 @@
 package ui;
 
+import model.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -42,9 +44,12 @@ public class LoginScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     userSetup.loadUser(userName.getText());
+                    User user = userSetup.getUser();
                     loadUserProgress.setIndeterminate(true);
                     loadUserProgress.setVisible(true);
                     userNameLabel.setText("Welcome" + userSetup.getUser().getFirstName() + "!");
+                    JFrame mainFrame = new Main("UBC CourseLoad", user);
+                    mainFrame.setVisible(true);
                     setVisible(false);
                 } catch (Exception userNameError) {
                     Color badUserColor = new Color(245,91,98);

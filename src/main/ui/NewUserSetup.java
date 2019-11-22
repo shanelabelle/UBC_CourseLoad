@@ -107,6 +107,9 @@ public class NewUserSetup extends JFrame {
                     errorLabel.setVisible(false);
                     newUserSetup.saveUser();
                     System.out.println(user);
+
+                    JFrame mainFrame = new Main("UBC CourseLoad", user);
+                    mainFrame.setVisible(true);
                 } catch (IOException io) {
                     userNameLabel.setText("Sorry, an error occurred while "
                             + "setting up your account, please try again.");
