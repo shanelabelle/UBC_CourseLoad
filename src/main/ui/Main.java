@@ -38,6 +38,13 @@ public class Main extends JFrame {
     private JButton courseButton4;
     private JButton courseButton5;
     private JPanel courseChart1;
+    private JPanel segmentPanel;
+    private JLabel courseTitle;
+    private JPanel courseSegments1;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JButton button1;
+    private JButton button2;
     private ArrayList<JButton> courseButtonList;
     private ArrayList<String> courseNames;
     private CardLayout courseCards;
