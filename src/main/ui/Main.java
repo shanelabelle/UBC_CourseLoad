@@ -109,6 +109,8 @@ public class Main extends JFrame {
         courseCards.show(pieChartPanel,"courseChart1");
 
         Color fieldColor = new Color(0,93,166);
+        segmentFields = new ArrayList<>();
+        weightFields = new ArrayList<>();
 
         segmentName0.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
         weight0.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
@@ -154,15 +156,7 @@ public class Main extends JFrame {
 
             }
         });
-        courseButton0.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Block course = courses.get(0);
-                courseChart1.add(pieChart1);
-                courseCards.show(pieChartPanel,"courseChart1");
 
-            }
-        });
     }
 
     private void createUIComponents() {
