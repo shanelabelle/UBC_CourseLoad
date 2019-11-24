@@ -1,10 +1,9 @@
 package ui;
 
-import model.Block;
+
 import model.Course;
+import model.Segment;
 import model.User;
-import org.knowm.xchart.PieChart;
-import org.knowm.xchart.XChartPanel;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -35,7 +34,7 @@ public class Main extends JFrame {
     private JButton courseButton3;
     private JButton courseButton4;
     private JButton courseButton5;
-    private JPanel courseChart1;
+    private JPanel courseChart;
     private JPanel segmentPanel;
     private JLabel courseTitle;
     private JPanel courseSegments1;
@@ -54,7 +53,7 @@ public class Main extends JFrame {
     private JButton editSegments;
     private JButton updateSegments;
     private ArrayList<JButton> courseButtonList;
-    private ArrayList<Block> courses;
+    private ArrayList<Course> courses;
     private CardLayout courseCards;
     private ArrayList<JTextField> segmentFields;
     private ArrayList<JTextField> weightFields;
@@ -86,8 +85,8 @@ public class Main extends JFrame {
         courseButtonList.add(courseButton4);
         courseButtonList.add(courseButton5);
 
-        for (Block block : user.getCourseLoad()) {
-            courses.add(block);
+        for (Course course : user.getCourseLoad()) {
+            courses.add(course);
         }
 
         int counter = 0;
@@ -98,15 +97,6 @@ public class Main extends JFrame {
             counter = counter + 1;
         }
 
-        PieChart chart = new PieChart(400,400);
-        chart.addSeries("Final",24);
-        chart.addSeries("Midterm", 10);
-        chart.getStyler().setChartBackgroundColor(Color.WHITE);
-        chart.getStyler().setPlotBorderColor(Color.WHITE);
-        chart.getStyler().setChartTitleBoxVisible(false);
-        JPanel pieChart1 = new XChartPanel<PieChart>(chart);
-        courseChart1.add(pieChart1);
-        courseCards.show(pieChartPanel,"courseChart1");
 
         Color fieldColor = new Color(0,93,166);
         segmentFields = new ArrayList<>();
@@ -157,6 +147,27 @@ public class Main extends JFrame {
             }
         });
 
+        courseButton0.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+                Course course = courses.get(0);
+
+                courseTitle.setText(course.getCourseDescription());
+
+                course.addSegment(new Segment("Final",50));
+                course.addSegment(new Segment("Midterm",25));
+                course.addSegment(new Segment("Assignments",25));
+
+                JPanel pieChart = course.getCourseChart();
+                courseChart.removeAll();
+                courseChart.add(pieChart);
+                courseCards.show(pieChartPanel,"courseChart");
+                screens.show(mainPanel,"coursesCard");
+
+            }
+        });
     }
 
     private void createUIComponents() {

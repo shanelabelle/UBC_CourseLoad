@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Observable;
 
-public class CourseLoad extends Observable implements Iterable<Block> {
+public class CourseLoad extends Observable implements Iterable<Course> {
     private int numberOfCourses;
     private String fileOutput;
-    private ArrayList<Block> courses;
+    private ArrayList<Course> courses;
     private User user;
 
     public CourseLoad(User user) {
@@ -38,7 +38,7 @@ public class CourseLoad extends Observable implements Iterable<Block> {
     // MODIFIES: this
     // EFFECTS: adds new course to the user's courseload
     public void addCourse(String courseName) {
-        Block newCourse = new Course(courseName);
+        Course newCourse = new Course(courseName);
         //NEED TO OVERRIDE HASHCODE AND EQUALS ON COURSES TO GET THIS TO WORK
         if (!courses.contains(newCourse)) {
             setChanged();
@@ -68,7 +68,7 @@ public class CourseLoad extends Observable implements Iterable<Block> {
     }
 
     public void removeAllCourses() {
-        this.courses = new ArrayList<Block>();
+        this.courses = new ArrayList<Course>();
         this.numberOfCourses = 0;
     }
 
@@ -88,7 +88,7 @@ public class CourseLoad extends Observable implements Iterable<Block> {
     }
 
     @Override
-    public Iterator<Block> iterator() {
+    public Iterator<Course> iterator() {
         return this.courses.iterator();
     }
 }

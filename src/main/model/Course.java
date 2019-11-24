@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Course extends Block {
+public class Course {
 
     private String courseName;
     private ArrayList<Segment> segments;
@@ -73,7 +73,7 @@ public class Course extends Block {
         return this.segments;
     }
 
-    public JPanel getCourseChart() {
+    public XChartPanel getCourseChart() {
 
         PieChart chart = new PieChart(400,400);
 
@@ -84,8 +84,7 @@ public class Course extends Block {
         chart.getStyler().setChartBackgroundColor(Color.WHITE);
         chart.getStyler().setPlotBorderColor(Color.WHITE);
         chart.getStyler().setChartTitleBoxVisible(false);
-        this.courseChart = new XChartPanel<PieChart>(chart);
-        return this.courseChart;
+        return new XChartPanel<PieChart>(chart);
 
     }
 }
