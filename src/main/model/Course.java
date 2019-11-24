@@ -1,7 +1,11 @@
 package model;
 
 import network.FetchCourseDescription;
+import org.knowm.xchart.PieChart;
+import org.knowm.xchart.XChartPanel;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,6 +15,7 @@ public class Course extends Block {
     private String courseName;
     private ArrayList<Segment> segments;
     private String courseDescription;
+    private JPanel courseChart;
 
     public Course(String name) {
 
@@ -66,5 +71,21 @@ public class Course extends Block {
 
     public ArrayList<Segment> getSegments() {
         return this.segments;
+    }
+
+    public JPanel getCourseChart() {
+
+        PieChart chart = new PieChart(400,400);
+
+        for (Segment segment : segments) {
+            chart.addSeries(segment.getType(),segment.getWeight());
+        }
+
+        chart.getStyler().setChartBackgroundColor(Color.WHITE);
+        chart.getStyler().setPlotBorderColor(Color.WHITE);
+        chart.getStyler().setChartTitleBoxVisible(false);
+        this.courseChart = new XChartPanel<PieChart>(chart);
+        return this.courseChart;
+
     }
 }

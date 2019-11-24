@@ -1,14 +1,12 @@
 package ui;
 
 import model.Block;
+import model.Course;
 import model.User;
 import org.knowm.xchart.PieChart;
-import org.knowm.xchart.PieChartBuilder;
 import org.knowm.xchart.XChartPanel;
 
-import javax.smartcardio.Card;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -41,13 +39,26 @@ public class Main extends JFrame {
     private JPanel segmentPanel;
     private JLabel courseTitle;
     private JPanel courseSegments1;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JButton button1;
-    private JButton button2;
+    private JTextField segmentName0;
+    private JTextField weight0;
+    private JTextField segmentName1;
+    private JTextField segmentName2;
+    private JTextField segmentName3;
+    private JTextField segmentName4;
+    private JTextField segmentName5;
+    private JTextField weight1;
+    private JTextField weight2;
+    private JTextField weight3;
+    private JTextField weight4;
+    private JTextField weight5;
+    private JButton editSegments;
+    private JButton updateSegments;
     private ArrayList<JButton> courseButtonList;
-    private ArrayList<String> courseNames;
+    private ArrayList<Block> courses;
     private CardLayout courseCards;
+    private ArrayList<JTextField> segmentFields;
+    private ArrayList<JTextField> weightFields;
+
 
     public Main(String title, User user) {
         super(title);
@@ -67,7 +78,7 @@ public class Main extends JFrame {
 
 
         courseButtonList = new ArrayList<>();
-        courseNames = new ArrayList<>();
+        courses = new ArrayList<>();
         courseButtonList.add(courseButton0);
         courseButtonList.add(courseButton1);
         courseButtonList.add(courseButton2);
@@ -76,14 +87,14 @@ public class Main extends JFrame {
         courseButtonList.add(courseButton5);
 
         for (Block block : user.getCourseLoad()) {
-            courseNames.add(block.getName());
+            courses.add(block);
         }
 
         int counter = 0;
 
-        while (counter < courseNames.size()) {
+        while (counter < courses.size()) {
             courseButtonList.get(counter).setVisible(true);
-            courseButtonList.get(counter).setText(courseNames.get(counter));
+            courseButtonList.get(counter).setText(courses.get(counter).getName());
             counter = counter + 1;
         }
 
@@ -96,6 +107,34 @@ public class Main extends JFrame {
         JPanel pieChart1 = new XChartPanel<PieChart>(chart);
         courseChart1.add(pieChart1);
         courseCards.show(pieChartPanel,"courseChart1");
+
+        Color fieldColor = new Color(0,93,166);
+
+        segmentName0.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        weight0.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        segmentFields.add(segmentName0);
+        weightFields.add(weight0);
+        segmentName1.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        weight1.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        segmentFields.add(segmentName1);
+        weightFields.add(weight1);
+        segmentName2.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        weight2.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        segmentFields.add(segmentName2);
+        weightFields.add(weight2);
+        segmentName3.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        weight3.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        segmentFields.add(segmentName3);
+        weightFields.add(weight3);
+        segmentName4.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        weight4.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        segmentFields.add(segmentName4);
+        weightFields.add(weight4);
+        segmentName5.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        weight5.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        segmentFields.add(segmentName5);
+        weightFields.add(weight5);
+
 
 
 
@@ -112,6 +151,15 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 screens.show(mainPanel,"coursesCard");
+
+            }
+        });
+        courseButton0.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Block course = courses.get(0);
+                courseChart1.add(pieChart1);
+                courseCards.show(pieChartPanel,"courseChart1");
 
             }
         });
