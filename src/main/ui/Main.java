@@ -156,10 +156,9 @@ public class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
 
-                Course course = user.getCourseLoad().get(0);
                 currentCourse = user.getCourseLoad().get(0);
 
-                courseTitle.setText(course.getCourseDescription());
+                courseTitle.setText(currentCourse.getCourseDescription());
 
                 // For testing only!!
 //                course.addSegment(new Segment("Final",50));
@@ -168,7 +167,7 @@ public class Main extends JFrame {
 
                 reDrawSegmentFields();
 
-                JPanel pieChart = course.getCourseChart();
+                JPanel pieChart = currentCourse.getCourseChart();
                 courseChart.removeAll();
                 courseChart.add(pieChart);
                 courseCards.show(pieChartPanel,"courseChart");
@@ -181,12 +180,8 @@ public class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 updateSegmentsButton.setVisible(true);
-                for (JTextField textField: segmentFields) {
-                    textField.setEditable(true);
-                }
-                for (JTextField textField: weightFields) {
-                    textField.setEditable(true);
-                }
+
+                editableSegments(true);
             }
         });
         updateSegmentsButton.addActionListener(new ActionListener() {
@@ -215,14 +210,7 @@ public class Main extends JFrame {
                     counter++;
                 }
 
-                for (JTextField textField: segmentFields) {
-                    textField.setEditable(false);
-                    textField.setText("");
-                }
-                for (JTextField textField: weightFields) {
-                    textField.setEditable(false);
-                    textField.setText("");
-                }
+                editableSegments(false);
 
                 currentCourse.sortSegments();
                 reDrawSegmentFields();
@@ -269,12 +257,7 @@ public class Main extends JFrame {
         }
 
         //returns fields to un-editable state
-        for (JTextField textField: segmentFields) {
-            textField.setEditable(false);
-        }
-        for (JTextField textField: weightFields) {
-            textField.setEditable(false);
-        }
+
 
     }
 
@@ -284,6 +267,31 @@ public class Main extends JFrame {
         courseChart.add(pieChart);
         courseCards.show(pieChartPanel,"courseChart");
         screens.show(mainPanel,"coursesCard");
+
+    }
+
+    public void editableSegments(Boolean editable) {
+
+        if (editable == true) {
+
+            for (JTextField textField: segmentFields) {
+                textField.setEditable(true);
+            }
+            for (JTextField textField: weightFields) {
+                textField.setEditable(true);
+            }
+
+        }
+
+        if (editable == false) {
+            for (JTextField textField: segmentFields) {
+                textField.setEditable(false);
+            }
+            for (JTextField textField: weightFields) {
+                textField.setEditable(false);
+            }
+
+        }
 
     }
 }
