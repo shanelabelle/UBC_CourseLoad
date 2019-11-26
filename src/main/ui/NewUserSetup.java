@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
 
 public class NewUserSetup extends JFrame {
 
@@ -22,19 +22,20 @@ public class NewUserSetup extends JFrame {
     private JTextField majorField;
     private JLabel majorLabel;
     private JLabel coursesLabel;
-    private JTextField course1;
+    private JTextField course0;
     private JButton createNewUser;
     private JLabel userNameLabel;
     private JTextField userNameField;
+    private JTextField course1;
     private JTextField course2;
     private JTextField course3;
     private JTextField course4;
     private JTextField course5;
-    private JTextField course6;
     private JLabel errorLabel;
     private UserSetup newUserSetup;
     private User user;
     private CourseLoad userCourses;
+    private ArrayList<JTextField> courseFields;
 
     public NewUserSetup(String title) {
         super(title);
@@ -50,6 +51,16 @@ public class NewUserSetup extends JFrame {
         lastNameField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
         majorField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
 
+        courseFields = new ArrayList<>();
+
+        courseFields.add(course0);
+        courseFields.add(course1);
+        courseFields.add(course2);
+        courseFields.add(course3);
+        courseFields.add(course4);
+        courseFields.add(course5);
+
+
 
         createNewUser.addActionListener(new ActionListener() {
             @Override
@@ -58,46 +69,12 @@ public class NewUserSetup extends JFrame {
 
                     newUserSetup = new UserSetup();
                     user = newUserSetup.getUser();
-                    if ((userNameField.getText().isEmpty())) {
-                        throw new EmptyUserField();
-                    } else {
-                        user.setUsername(userNameField.getText());
-                        }
-                    if ((firstNameField.getText().isEmpty())) {
-                        throw new EmptyFirstNameField();
-                    } else {
-                        user.setFirstName(firstNameField.getText());
-                    }
-                    if ((lastNameField.getText().isEmpty())) {
-                        throw new EmptyLastNameField();
-                    } else {
-                        user.setLastName(lastNameField.getText());
-                    }
-                    if ((majorField.getText().isEmpty())) {
-                        throw new EmptyMajorField();
-                    } else {
-                        user.setMajor(majorField.getText());
-                    }
 
-                    userCourses = user.getCourseLoad();
-                    if (!(course1.getText().isEmpty())) {
-                        userCourses.addCourse(course1.getText().toUpperCase());
-                    }
-                    if (!(course2.getText().isEmpty())) {
-                        userCourses.addCourse(course2.getText().toUpperCase());
-                    }
-                    if (!(course3.getText().isEmpty())) {
-                        userCourses.addCourse(course3.getText().toUpperCase());
-                    }
-                    if (!(course4.getText().isEmpty())) {
-                        userCourses.addCourse(course4.getText().toUpperCase());
-                    }
-                    if (!(course5.getText().isEmpty())) {
-                        userCourses.addCourse(course5.getText().toUpperCase());
-                    }
-                    if (!(course6.getText().isEmpty())) {
-                        userCourses.addCourse(course6.getText().toUpperCase());
-                    }
+                    setNewUserFields();
+
+                    addCoursesFromFields();
+
+
                     File userFile = new File("./data/" + userNameField.getText() + ".txt");
                     if (userFile.exists()) {
                         throw new UserAlreadyExists();
@@ -129,8 +106,7 @@ public class NewUserSetup extends JFrame {
                     errorLabel.setText("Please fill out the major field.");
                 } catch (UserAlreadyExists alreadyExists) {
                     errorLabel.setVisible(true);
-                    errorLabel.setText("Sorry, that username already exists."
-                            + " Please enter a different username.");
+                    errorLabel.setText("Sorry, that username already exists.");
                 }
             }
         });
@@ -140,5 +116,56 @@ public class NewUserSetup extends JFrame {
 
         JFrame frame = new NewUserSetup("UBC CourseLoad");
         frame.setVisible(true);
+    }
+
+    private void validateUserNameField() throws EmptyUserField {
+        if ((userNameField.getText().isEmpty())) {
+            throw new EmptyUserField();
+        } else {
+            user.setUsername(userNameField.getText());
+        }
+    }
+
+    private void validateFirstNameField() throws EmptyFirstNameField {
+        if ((firstNameField.getText().isEmpty())) {
+            throw new EmptyFirstNameField();
+        } else {
+            user.setFirstName(firstNameField.getText());
+        }
+    }
+
+    private void validateLastNameField() throws EmptyLastNameField {
+        if ((lastNameField.getText().isEmpty())) {
+            throw new EmptyLastNameField();
+        } else {
+            user.setLastName(lastNameField.getText());
+        }
+    }
+
+    private void validateMajorField() throws EmptyMajorField {
+        if ((majorField.getText().isEmpty())) {
+            throw new EmptyMajorField();
+        } else {
+            user.setMajor(majorField.getText());
+        }
+    }
+
+    private void setNewUserFields()
+            throws EmptyMajorField, EmptyLastNameField, EmptyFirstNameField, EmptyUserField {
+
+        validateUserNameField();
+        validateFirstNameField();
+        validateLastNameField();
+        validateMajorField();
+    }
+
+    private void addCoursesFromFields() {
+        userCourses = user.getCourseLoad();
+
+        for (JTextField textField : courseFields) {
+            if (!(textField.getText().isEmpty())) {
+                userCourses.addCourse(textField.getText().toUpperCase());
+            }
+        }
     }
 }

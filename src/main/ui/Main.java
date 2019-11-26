@@ -335,11 +335,9 @@ public class Main extends JFrame {
                 invalidWeightLabel.setVisible(true);
                 validWeight = false;
             }
-            if (!segmentFields.get(counter).getText().isEmpty()
-                    && validWeight) {
+            if (!segmentFields.get(counter).getText().isEmpty() && validWeight) {
                 currentCourse.addSegment(new Segment(segmentFields.get(counter).getText(), weight));
             }
-
             counter++;
         }
     }

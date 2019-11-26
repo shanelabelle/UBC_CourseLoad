@@ -97,7 +97,7 @@
               <text value="Courses (e.g. CPSC 210)"/>
             </properties>
           </component>
-          <component id="92c4c" class="javax.swing.JTextField" binding="course1">
+          <component id="92c4c" class="javax.swing.JTextField" binding="course0">
             <constraints>
               <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -162,7 +162,7 @@
               <text value="Major"/>
             </properties>
           </component>
-          <component id="5781" class="javax.swing.JTextField" binding="course2">
+          <component id="5781" class="javax.swing.JTextField" binding="course1">
             <constraints>
               <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -178,7 +178,7 @@
               <selectionColor color="-672161"/>
             </properties>
           </component>
-          <component id="4266c" class="javax.swing.JTextField" binding="course3">
+          <component id="4266c" class="javax.swing.JTextField" binding="course2">
             <constraints>
               <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -195,7 +195,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="7c378" class="javax.swing.JTextField" binding="course4">
+          <component id="7c378" class="javax.swing.JTextField" binding="course3">
             <constraints>
               <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -212,7 +212,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="133f1" class="javax.swing.JTextField" binding="course5">
+          <component id="133f1" class="javax.swing.JTextField" binding="course4">
             <constraints>
               <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -229,7 +229,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="bee48" class="javax.swing.JTextField" binding="course6">
+          <component id="bee48" class="javax.swing.JTextField" binding="course5">
             <constraints>
               <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -248,7 +248,9 @@
           </component>
           <component id="cc5fb" class="javax.swing.JLabel" binding="errorLabel">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false">
+                <maximum-size width="200" height="-1"/>
+              </grid>
             </constraints>
             <properties>
               <alignmentY value="0.5"/>
