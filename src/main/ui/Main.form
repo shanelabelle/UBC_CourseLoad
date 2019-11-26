@@ -286,8 +286,8 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <grid id="9421e" binding="courseContent" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="25" left="0" bottom="100" right="1000"/>
+                  <grid id="9421e" binding="courseContent" layout-manager="GridLayoutManager" row-count="8" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="100" right="1000"/>
                     <constraints>
                       <card name="Card1"/>
                     </constraints>
@@ -298,7 +298,7 @@
                     <children>
                       <component id="237ab" class="javax.swing.JTextField" binding="courseField0">
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
                             <maximum-size width="400" height="-1"/>
                           </grid>
@@ -314,7 +314,7 @@
                       </component>
                       <component id="ffe68" class="javax.swing.JLabel" binding="courseTitle0">
                         <constraints>
-                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
                             <maximum-size width="500" height="-1"/>
                           </grid>
@@ -328,68 +328,6 @@
                         </properties>
                       </component>
                       <component id="f4e0d" class="javax.swing.JTextField" binding="courseField1">
-                        <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
-                            <preferred-size width="250" height="-1"/>
-                            <maximum-size width="400" height="-1"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-1"/>
-                          <caretColor color="-16753242"/>
-                          <font name="Open Sans" size="28" style="1"/>
-                          <foreground color="-16753242"/>
-                          <text value=""/>
-                          <visible value="true"/>
-                        </properties>
-                      </component>
-                      <component id="19407" class="javax.swing.JLabel" binding="courseTitle1">
-                        <constraints>
-                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="9" fill="0" indent="0" use-parent-layout="false">
-                            <preferred-size width="250" height="-1"/>
-                            <maximum-size width="500" height="-1"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <alignmentX value="0.5"/>
-                          <focusable value="false"/>
-                          <font name="Open Sans Light" size="28" style="0"/>
-                          <foreground color="-16753242"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="8c0bb" class="javax.swing.JTextField" binding="courseField2">
-                        <constraints>
-                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
-                            <preferred-size width="250" height="-1"/>
-                            <maximum-size width="400" height="-1"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <background color="-1"/>
-                          <caretColor color="-16753242"/>
-                          <font name="Open Sans" size="28" style="1"/>
-                          <foreground color="-16753242"/>
-                          <text value=""/>
-                          <visible value="true"/>
-                        </properties>
-                      </component>
-                      <component id="be845" class="javax.swing.JLabel" binding="courseTitle2">
-                        <constraints>
-                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="9" fill="0" indent="0" use-parent-layout="false">
-                            <preferred-size width="250" height="-1"/>
-                            <maximum-size width="500" height="-1"/>
-                          </grid>
-                        </constraints>
-                        <properties>
-                          <alignmentX value="0.5"/>
-                          <focusable value="false"/>
-                          <font name="Open Sans Light" size="28" style="0"/>
-                          <foreground color="-16753242"/>
-                          <text value=""/>
-                        </properties>
-                      </component>
-                      <component id="d5a42" class="javax.swing.JTextField" binding="courseField3">
                         <constraints>
                           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
@@ -405,7 +343,7 @@
                           <visible value="true"/>
                         </properties>
                       </component>
-                      <component id="70e6c" class="javax.swing.JLabel" binding="courseTitle3">
+                      <component id="19407" class="javax.swing.JLabel" binding="courseTitle1">
                         <constraints>
                           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
@@ -420,7 +358,7 @@
                           <text value=""/>
                         </properties>
                       </component>
-                      <component id="d6f15" class="javax.swing.JTextField" binding="courseField4">
+                      <component id="8c0bb" class="javax.swing.JTextField" binding="courseField2">
                         <constraints>
                           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
@@ -436,7 +374,7 @@
                           <visible value="true"/>
                         </properties>
                       </component>
-                      <component id="b7b47" class="javax.swing.JLabel" binding="courseTitle4">
+                      <component id="be845" class="javax.swing.JLabel" binding="courseTitle2">
                         <constraints>
                           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
@@ -451,7 +389,7 @@
                           <text value=""/>
                         </properties>
                       </component>
-                      <component id="1c847" class="javax.swing.JTextField" binding="courseField5">
+                      <component id="d5a42" class="javax.swing.JTextField" binding="courseField3">
                         <constraints>
                           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
@@ -467,7 +405,7 @@
                           <visible value="true"/>
                         </properties>
                       </component>
-                      <component id="ea419" class="javax.swing.JLabel" binding="courseTitle5">
+                      <component id="70e6c" class="javax.swing.JLabel" binding="courseTitle3">
                         <constraints>
                           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
@@ -480,6 +418,105 @@
                           <font name="Open Sans Light" size="28" style="0"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
+                        </properties>
+                      </component>
+                      <component id="d6f15" class="javax.swing.JTextField" binding="courseField4">
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
+                            <preferred-size width="250" height="-1"/>
+                            <maximum-size width="400" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-1"/>
+                          <caretColor color="-16753242"/>
+                          <font name="Open Sans" size="28" style="1"/>
+                          <foreground color="-16753242"/>
+                          <text value=""/>
+                          <visible value="true"/>
+                        </properties>
+                      </component>
+                      <component id="b7b47" class="javax.swing.JLabel" binding="courseTitle4">
+                        <constraints>
+                          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="250" height="-1"/>
+                            <maximum-size width="500" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <alignmentX value="0.5"/>
+                          <focusable value="false"/>
+                          <font name="Open Sans Light" size="28" style="0"/>
+                          <foreground color="-16753242"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                      <component id="1c847" class="javax.swing.JTextField" binding="courseField5">
+                        <constraints>
+                          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
+                            <preferred-size width="250" height="-1"/>
+                            <maximum-size width="400" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-1"/>
+                          <caretColor color="-16753242"/>
+                          <font name="Open Sans" size="28" style="1"/>
+                          <foreground color="-16753242"/>
+                          <text value=""/>
+                          <visible value="true"/>
+                        </properties>
+                      </component>
+                      <component id="ea419" class="javax.swing.JLabel" binding="courseTitle5">
+                        <constraints>
+                          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="250" height="-1"/>
+                            <maximum-size width="500" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <alignmentX value="0.5"/>
+                          <focusable value="false"/>
+                          <font name="Open Sans Light" size="28" style="0"/>
+                          <foreground color="-16753242"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                      <component id="e7177" class="javax.swing.JButton">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="5" use-parent-layout="false">
+                            <minimum-size width="75" height="-1"/>
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-16753242"/>
+                          <borderPainted value="true"/>
+                          <contentAreaFilled value="true"/>
+                          <focusPainted value="false"/>
+                          <font name="Open Sans" size="16" style="1"/>
+                          <foreground color="-1"/>
+                          <hideActionText value="false"/>
+                          <label value="Edit"/>
+                          <text value="Edit"/>
+                        </properties>
+                      </component>
+                      <component id="13301" class="javax.swing.JButton">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
+                            <minimum-size width="75" height="-1"/>
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <autoscrolls value="false"/>
+                          <background color="-672161"/>
+                          <focusPainted value="false"/>
+                          <font name="Open Sans" size="16" style="1"/>
+                          <foreground color="-16768699"/>
+                          <label value="Update"/>
+                          <text value="Update"/>
+                          <visible value="true"/>
                         </properties>
                       </component>
                     </children>

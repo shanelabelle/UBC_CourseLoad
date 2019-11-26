@@ -77,6 +77,8 @@ public class Main extends JFrame {
     private ArrayList<JTextField> weightFields;
     private CourseLoad courseLoad;
     private Course currentCourse;
+    private ArrayList<JTextField> courseFields;
+    private ArrayList<JLabel> courseTitles;
 
 
     public Main(String title, User user) {
@@ -105,6 +107,29 @@ public class Main extends JFrame {
         courseButtonList.add(courseButton3);
         courseButtonList.add(courseButton4);
         courseButtonList.add(courseButton5);
+
+        //to keep track of course fields
+        courseFields = new ArrayList<>();
+        courseFields.add(courseField0);
+        courseFields.add(courseField1);
+        courseFields.add(courseField2);
+        courseFields.add(courseField3);
+        courseFields.add(courseField4);
+        courseFields.add(courseField5);
+
+        //to keep track of course titles
+        courseTitles = new ArrayList<>();
+        courseTitles.add(courseTitle0);
+        courseTitles.add(courseTitle1);
+        courseTitles.add(courseTitle2);
+        courseTitles.add(courseTitle3);
+        courseTitles.add(courseTitle4);
+        courseTitles.add(courseTitle5);
+
+        //initialize courses to uneditable
+        editableCourses(false);
+
+
 
 
         courseLoad = user.getCourseLoad();
@@ -280,10 +305,6 @@ public class Main extends JFrame {
 
             counter++;
         }
-
-        //returns fields to un-editable state
-
-
     }
 
     public void drawCourseChart() {
@@ -364,5 +385,73 @@ public class Main extends JFrame {
             textField.setText("");
         }
 
+    }
+
+    public void editableCourses(Boolean editable) {
+        if (editable == true) {
+
+            for (JTextField textField: courseFields) {
+                textField.setEditable(true);
+            }
+
+        }
+
+        if (editable == false) {
+            for (JTextField textField: courseFields) {
+                textField.setEditable(false);
+            }
+
+        }
+
+    }
+
+    public void redrawCourseFields() {
+        clearCourseFields();
+
+
+        int counter = 0;
+
+
+        // re-draws coursefields based on the current status of the course list in the courseload
+        while (counter < courseLoad.size()) {
+            courseFields.get(counter).setText(courseLoad.get(counter).getName());
+            courseTitles.get(counter).setText(courseLoad.get(counter).getCourseDescription());
+
+            counter++;
+        }
+    }
+
+    public void clearCourseFields() {
+        for (JTextField textField: courseFields) {
+            textField.setText("");
+        }
+        for (JLabel label: courseTitles) {
+            label.setText("");
+        }
+
+
+    }
+
+    public void updateCourseLoad() {
+
+        int counter = 0;
+        int weight = 0;
+        boolean validWeight = false;
+
+        while (counter < courseFields.size()) {
+            try {
+                if (!weightFields.get(counter).getText().isEmpty()) {
+                    weight = Integer.parseInt(weightFields.get(counter).getText());
+                    validWeight = true;
+                }
+            } catch (NumberFormatException badInt) {
+                invalidWeightLabel.setVisible(true);
+                validWeight = false;
+            }
+            if (!segmentFields.get(counter).getText().isEmpty() && validWeight) {
+                currentCourse.addSegment(new Segment(segmentFields.get(counter).getText(), weight));
+            }
+            counter++;
+        }
     }
 }
