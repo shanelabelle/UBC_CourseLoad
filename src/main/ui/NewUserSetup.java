@@ -81,22 +81,22 @@ public class NewUserSetup extends JFrame {
 
                     userCourses = user.getCourseLoad();
                     if (!(course1.getText().isEmpty())) {
-                        userCourses.addCourse(course1.getText());
+                        userCourses.addCourse(course1.getText().toUpperCase());
                     }
                     if (!(course2.getText().isEmpty())) {
-                        userCourses.addCourse(course2.getText());
+                        userCourses.addCourse(course2.getText().toUpperCase());
                     }
                     if (!(course3.getText().isEmpty())) {
-                        userCourses.addCourse(course3.getText());
+                        userCourses.addCourse(course3.getText().toUpperCase());
                     }
                     if (!(course4.getText().isEmpty())) {
-                        userCourses.addCourse(course4.getText());
+                        userCourses.addCourse(course4.getText().toUpperCase());
                     }
                     if (!(course5.getText().isEmpty())) {
-                        userCourses.addCourse(course5.getText());
+                        userCourses.addCourse(course5.getText().toUpperCase());
                     }
                     if (!(course6.getText().isEmpty())) {
-                        userCourses.addCourse(course6.getText());
+                        userCourses.addCourse(course6.getText().toUpperCase());
                     }
                     File userFile = new File("./data/" + userNameField.getText() + ".txt");
                     if (userFile.exists()) {
@@ -107,6 +107,7 @@ public class NewUserSetup extends JFrame {
                     errorLabel.setVisible(false);
                     newUserSetup.saveUser();
                     System.out.println(user);
+                    setVisible(false);
 
                     JFrame mainFrame = new Main("UBC CourseLoad", user);
                     mainFrame.setVisible(true);
