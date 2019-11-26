@@ -3,6 +3,7 @@ package model;
 import network.FetchCourseDescription;
 import org.knowm.xchart.PieChart;
 import org.knowm.xchart.XChartPanel;
+import org.knowm.xchart.style.PieStyler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -89,6 +90,7 @@ public class Course implements Iterable<Segment> {
         chart.getStyler().setChartBackgroundColor(Color.WHITE);
         chart.getStyler().setPlotBorderColor(Color.WHITE);
         chart.getStyler().setChartTitleBoxVisible(false);
+        chart.getStyler().setAnnotationType(PieStyler.AnnotationType.valueOf("LabelAndPercentage"));
         return new XChartPanel<PieChart>(chart);
 
     }

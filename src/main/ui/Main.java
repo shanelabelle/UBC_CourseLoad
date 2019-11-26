@@ -129,6 +129,8 @@ public class Main extends JFrame {
         segmentFields.add(segmentName5);
         weightFields.add(weight5);
 
+        updateSegmentsButton.setVisible(false);
+
 
 
 
@@ -163,7 +165,7 @@ public class Main extends JFrame {
                 course.addSegment(new Segment("Midterm",25));
                 course.addSegment(new Segment("Assignments",25));
 
-                reDrawSegmentFields(currentCourse);
+                reDrawSegmentFields();
 
                 JPanel pieChart = course.getCourseChart();
                 courseChart.removeAll();
@@ -222,7 +224,8 @@ public class Main extends JFrame {
                 }
 
                 currentCourse.sortSegments();
-                reDrawSegmentFields(currentCourse);
+                reDrawSegmentFields();
+                drawCourseChart();
 
                 // need to reassign all the segments to the fields in the proper order
 
@@ -250,16 +253,16 @@ public class Main extends JFrame {
         mainFrame.setVisible(true);
     }
 
-    public void reDrawSegmentFields(Course current) {
+    public void reDrawSegmentFields() {
 
 
         int counter = 0;
 
 
         // re-draws labels based on the current status of the segment list in the current course
-        while (counter < current.getSegments().size()) {
-            segmentFields.get(counter).setText(current.getSegments().get(counter).getType());
-            weightFields.get(counter).setText(Integer.toString(current.getSegments().get(counter).getWeight()));
+        while (counter < currentCourse.getSegments().size()) {
+            segmentFields.get(counter).setText(currentCourse.getSegments().get(counter).getType());
+            weightFields.get(counter).setText(Integer.toString(currentCourse.getSegments().get(counter).getWeight()));
 
             counter++;
         }
@@ -271,6 +274,15 @@ public class Main extends JFrame {
         for (JTextField textField: weightFields) {
             textField.setEditable(false);
         }
+
+    }
+
+    public void drawCourseChart() {
+        JPanel pieChart = currentCourse.getCourseChart();
+        courseChart.removeAll();
+        courseChart.add(pieChart);
+        courseCards.show(pieChartPanel,"courseChart");
+        screens.show(mainPanel,"coursesCard");
 
     }
 }
