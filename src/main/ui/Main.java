@@ -161,9 +161,10 @@ public class Main extends JFrame {
 
                 courseTitle.setText(course.getCourseDescription());
 
-                course.addSegment(new Segment("Final",50));
-                course.addSegment(new Segment("Midterm",25));
-                course.addSegment(new Segment("Assignments",25));
+                // For testing only!!
+//                course.addSegment(new Segment("Final",50));
+//                course.addSegment(new Segment("Midterm",25));
+//                course.addSegment(new Segment("Assignments",25));
 
                 reDrawSegmentFields();
 

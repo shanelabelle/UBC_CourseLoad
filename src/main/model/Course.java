@@ -24,6 +24,7 @@ public class Course implements Iterable<Segment> {
         this.courseName = name;
         this.segments = new ArrayList<>();
         setCourseDescription();
+        this.segments.add(new Segment(this.courseName,100));
 
     }
 
