@@ -196,6 +196,41 @@ public class Main extends JFrame {
 
             }
         });
+        courseButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeCourseView(1);
+
+            }
+        });
+        courseButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeCourseView(2);
+
+            }
+        });
+        courseButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeCourseView(3);
+
+            }
+        });
+        courseButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeCourseView(4);
+
+            }
+        });
+        courseButton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeCourseView(5);
+
+            }
+        });
     }
 
     private void createUIComponents() {
