@@ -51,8 +51,10 @@ public class Main extends JFrame {
     private JTextField weight3;
     private JTextField weight4;
     private JTextField weight5;
-    private JButton editSegments;
-    private JButton updateSegments;
+    private JButton editSegmentsButton;
+    private JButton updateSegmentsButton;
+    private JLabel weightLabel;
+    private JLabel segmentLabel;
     private ArrayList<JButton> courseButtonList;
     private CardLayout courseCards;
     private ArrayList<JTextField> segmentFields;
@@ -161,21 +163,7 @@ public class Main extends JFrame {
                 course.addSegment(new Segment("Midterm",25));
                 course.addSegment(new Segment("Assignments",25));
 
-                ArrayList<Segment> segments = course.getSegments();
-
-                int counter = 0;
-
-                while (counter < segments.size()) {
-                    segmentFields.get(counter).setText(segments.get(counter).getType());
-                    weightFields.get(counter).setText(Integer.toString(segments.get(counter).getWeight()));
-                    for (JTextField textField: segmentFields) {
-                        textField.setEditable(false);
-                    }
-                    for (JTextField textField: weightFields) {
-                        textField.setEditable(false);
-                    }
-                    counter++;
-                }
+                reDrawSegmentFields(currentCourse);
 
                 JPanel pieChart = course.getCourseChart();
                 courseChart.removeAll();
@@ -185,11 +173,11 @@ public class Main extends JFrame {
 
             }
         });
-        editSegments.addActionListener(new ActionListener() {
+        editSegmentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                updateSegments.setVisible(true);
+                updateSegmentsButton.setVisible(true);
                 for (JTextField textField: segmentFields) {
                     textField.setEditable(true);
                 }
@@ -198,7 +186,7 @@ public class Main extends JFrame {
                 }
             }
         });
-        updateSegments.addActionListener(new ActionListener() {
+        updateSegmentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int counter = 0;
@@ -210,25 +198,35 @@ public class Main extends JFrame {
 
                 while (counter < segmentFields.size()) {
                     try {
-                        weight = Integer.parseInt(weightFields.get(0).getText());
+                        if (!weightFields.get(counter).getText().isEmpty()) {
+                            weight = Integer.parseInt(weightFields.get(counter).getText());
+                        }
                     } catch (NumberFormatException badInt) {
-                        weight = 0;
+                        weightLabel.setText("Weight(%) - Invalid Weight");
                     }
-                    currentCourse.addSegment(new Segment(segmentFields.get(counter).getText(), weight));
+                    if (!segmentFields.get(counter).getText().isEmpty()
+                            && !weightFields.get(counter).getText().isEmpty()) {
+                        currentCourse.addSegment(new Segment(segmentFields.get(counter).getText(), weight));
+                    }
 
                     counter++;
                 }
 
                 for (JTextField textField: segmentFields) {
                     textField.setEditable(false);
+                    textField.setText("");
                 }
                 for (JTextField textField: weightFields) {
                     textField.setEditable(false);
+                    textField.setText("");
                 }
 
                 currentCourse.sortSegments();
+                reDrawSegmentFields(currentCourse);
 
-                updateSegments.setVisible(false);
+                // need to reassign all the segments to the fields in the proper order
+
+                updateSegmentsButton.setVisible(false);
 
             }
         });
@@ -250,5 +248,29 @@ public class Main extends JFrame {
 
         JFrame mainFrame = new Main("UBC CourseLoad", shane);
         mainFrame.setVisible(true);
+    }
+
+    public void reDrawSegmentFields(Course current) {
+
+
+        int counter = 0;
+
+
+        // re-draws labels based on the current status of the segment list in the current course
+        while (counter < current.getSegments().size()) {
+            segmentFields.get(counter).setText(current.getSegments().get(counter).getType());
+            weightFields.get(counter).setText(Integer.toString(current.getSegments().get(counter).getWeight()));
+
+            counter++;
+        }
+
+        //returns fields to un-editable state
+        for (JTextField textField: segmentFields) {
+            textField.setEditable(false);
+        }
+        for (JTextField textField: weightFields) {
+            textField.setEditable(false);
+        }
+
     }
 }

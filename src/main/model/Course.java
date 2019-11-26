@@ -71,7 +71,7 @@ public class Course implements Iterable<Segment> {
     }
 
     public void clearSegments() {
-        this.segments = new ArrayList<Segment>();
+        this.segments = new ArrayList<>();
     }
 
     public ArrayList<Segment> getSegments() {
