@@ -70,20 +70,16 @@ public class NewUserSetup extends JFrame {
                     newUserSetup = new UserSetup();
                     user = newUserSetup.getUser();
 
+                    //sets user fields
                     setNewUserFields();
-
+                    //reads course fields and adds courses to user courseload
                     addCoursesFromFields();
 
+                    //saves user to a new file
+                    createNewUserFile();
 
-                    File userFile = new File("./data/" + userNameField.getText() + ".txt");
-                    if (userFile.exists()) {
-                        throw new UserAlreadyExists();
-                    }
+                    //hides new user window
 
-                    //Builds user data structure
-                    errorLabel.setVisible(false);
-                    newUserSetup.saveUser();
-                    System.out.println(user);
                     setVisible(false);
 
                     JFrame mainFrame = new Main("UBC CourseLoad", user);
@@ -91,22 +87,9 @@ public class NewUserSetup extends JFrame {
                 } catch (IOException io) {
                     userNameLabel.setText("Sorry, an error occurred while "
                             + "setting up your account, please try again.");
-                } catch (EmptyUserField emptyUser) {
+                } catch (Exception fieldError) {
                     errorLabel.setVisible(true);
-                    errorLabel.setText("Please fill out the username field.");
-
-                } catch (EmptyFirstNameField emptyFirstNameField) {
-                    errorLabel.setVisible(true);
-                    errorLabel.setText("Please fill out the first name field.");
-                } catch (EmptyLastNameField emptyLastNameField) {
-                    errorLabel.setVisible(true);
-                    errorLabel.setText("Please fill out the last name field.");
-                } catch (EmptyMajorField emptyMajorField) {
-                    errorLabel.setVisible(true);
-                    errorLabel.setText("Please fill out the major field.");
-                } catch (UserAlreadyExists alreadyExists) {
-                    errorLabel.setVisible(true);
-                    errorLabel.setText("Sorry, that username already exists.");
+                    errorLabel.setText(fieldError.getMessage());
                 }
             }
         });
@@ -167,5 +150,18 @@ public class NewUserSetup extends JFrame {
                 userCourses.addCourse(textField.getText().toUpperCase());
             }
         }
+    }
+
+    private void createNewUserFile() throws UserAlreadyExists, IOException {
+        File userFile = new File("./data/" + userNameField.getText() + ".txt");
+        if (userFile.exists()) {
+            throw new UserAlreadyExists();
+        }
+
+        //Builds user data structure
+        errorLabel.setVisible(false);
+        newUserSetup.saveUser();
+        System.out.println(user);
+
     }
 }
