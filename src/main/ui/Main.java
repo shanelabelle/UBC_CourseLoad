@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Main extends JFrame {
+    private User user;
     private JPanel background;
     private JButton homeButton;
     private JLabel logo;
@@ -55,6 +56,7 @@ public class Main extends JFrame {
     private JButton updateSegmentsButton;
     private JLabel weightLabel;
     private JLabel segmentLabel;
+    private JLabel invalidWeightLabel;
     private ArrayList<JButton> courseButtonList;
     private CardLayout courseCards;
     private ArrayList<JTextField> segmentFields;
@@ -73,6 +75,8 @@ public class Main extends JFrame {
 
         screens = (CardLayout) (mainPanel.getLayout());
         courseCards = (CardLayout) (pieChartPanel.getLayout());
+
+        this.user = user;
 
         userNameLabel.setText(user.getFirstName() + " " + user.getLastName());
         majorLabel.setText(user.getMajor());
@@ -130,6 +134,8 @@ public class Main extends JFrame {
         weightFields.add(weight5);
 
         updateSegmentsButton.setVisible(false);
+        editableSegments(false);
+        invalidWeightLabel.setVisible(false);
 
 
 
@@ -155,24 +161,7 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
-                currentCourse = user.getCourseLoad().get(0);
-
-                courseTitle.setText(currentCourse.getCourseDescription());
-
-                // For testing only!!
-//                course.addSegment(new Segment("Final",50));
-//                course.addSegment(new Segment("Midterm",25));
-//                course.addSegment(new Segment("Assignments",25));
-
-                reDrawSegmentFields();
-
-                JPanel pieChart = currentCourse.getCourseChart();
-                courseChart.removeAll();
-                courseChart.add(pieChart);
-                courseCards.show(pieChartPanel,"courseChart");
-                screens.show(mainPanel,"coursesCard");
-
+                changeCourseView(0);
             }
         });
         editSegmentsButton.addActionListener(new ActionListener() {
@@ -180,6 +169,7 @@ public class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 updateSegmentsButton.setVisible(true);
+                invalidWeightLabel.setVisible(false);
 
                 editableSegments(true);
             }
@@ -187,28 +177,12 @@ public class Main extends JFrame {
         updateSegmentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int counter = 0;
-                int weight = 0;
 
                 currentCourse.clearSegments();
 
                 //updates the current course with the new inputted segments
+                updateCurrentCourseSegments();
 
-                while (counter < segmentFields.size()) {
-                    try {
-                        if (!weightFields.get(counter).getText().isEmpty()) {
-                            weight = Integer.parseInt(weightFields.get(counter).getText());
-                        }
-                    } catch (NumberFormatException badInt) {
-                        weightLabel.setText("Weight(%) - Invalid Weight");
-                    }
-                    if (!segmentFields.get(counter).getText().isEmpty()
-                            && !weightFields.get(counter).getText().isEmpty()) {
-                        currentCourse.addSegment(new Segment(segmentFields.get(counter).getText(), weight));
-                    }
-
-                    counter++;
-                }
 
                 editableSegments(false);
 
@@ -243,6 +217,8 @@ public class Main extends JFrame {
     }
 
     public void reDrawSegmentFields() {
+
+        clearSegmentFields();
 
 
         int counter = 0;
@@ -291,6 +267,54 @@ public class Main extends JFrame {
                 textField.setEditable(false);
             }
 
+        }
+
+    }
+
+    public void changeCourseView(int courseNumber) {
+
+        currentCourse = user.getCourseLoad().get(courseNumber);
+
+        courseTitle.setText(currentCourse.getCourseDescription());
+
+
+        reDrawSegmentFields();
+
+        drawCourseChart();
+
+    }
+
+    public void updateCurrentCourseSegments() {
+
+        int counter = 0;
+        int weight = 0;
+        boolean validWeight = false;
+
+        while (counter < segmentFields.size()) {
+            try {
+                if (!weightFields.get(counter).getText().isEmpty()) {
+                    weight = Integer.parseInt(weightFields.get(counter).getText());
+                    validWeight = true;
+                }
+            } catch (NumberFormatException badInt) {
+                invalidWeightLabel.setVisible(true);
+                validWeight = false;
+            }
+            if (!segmentFields.get(counter).getText().isEmpty()
+                    && validWeight) {
+                currentCourse.addSegment(new Segment(segmentFields.get(counter).getText(), weight));
+            }
+
+            counter++;
+        }
+    }
+
+    public void clearSegmentFields() {
+        for (JTextField textField: segmentFields) {
+            textField.setText("");
+        }
+        for (JTextField textField: weightFields) {
+            textField.setText("");
         }
 
     }

@@ -357,7 +357,7 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <grid id="52d21" binding="courseSegments1" layout-manager="GridLayoutManager" row-count="10" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="5" vgap="5">
+                  <grid id="52d21" binding="courseSegments1" layout-manager="GridLayoutManager" row-count="11" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="5" vgap="5">
                     <margin top="0" left="50" bottom="150" right="350"/>
                     <constraints>
                       <card name="Card1"/>
@@ -392,7 +392,7 @@
                       </component>
                       <component id="b0382" class="javax.swing.JTextField" binding="segmentName0">
                         <constraints>
-                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -418,7 +418,7 @@
                       </component>
                       <component id="c0f76" class="javax.swing.JTextField" binding="weight0">
                         <constraints>
-                          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -434,7 +434,7 @@
                       </component>
                       <component id="6741e" class="javax.swing.JTextField" binding="segmentName1">
                         <constraints>
-                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -450,7 +450,7 @@
                       </component>
                       <component id="37cae" class="javax.swing.JTextField" binding="weight1">
                         <constraints>
-                          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -466,7 +466,7 @@
                       </component>
                       <component id="92abd" class="javax.swing.JTextField" binding="segmentName2">
                         <constraints>
-                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -482,7 +482,7 @@
                       </component>
                       <component id="fc3a3" class="javax.swing.JTextField" binding="weight2">
                         <constraints>
-                          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -498,7 +498,7 @@
                       </component>
                       <component id="64068" class="javax.swing.JTextField" binding="weight3">
                         <constraints>
-                          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -514,7 +514,7 @@
                       </component>
                       <component id="ae79f" class="javax.swing.JTextField" binding="segmentName4">
                         <constraints>
-                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -530,7 +530,7 @@
                       </component>
                       <component id="4ca31" class="javax.swing.JTextField" binding="weight4">
                         <constraints>
-                          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -546,7 +546,7 @@
                       </component>
                       <component id="4b4ad" class="javax.swing.JTextField" binding="segmentName5">
                         <constraints>
-                          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -562,7 +562,7 @@
                       </component>
                       <component id="dbc1b" class="javax.swing.JTextField" binding="weight5">
                         <constraints>
-                          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -578,7 +578,7 @@
                       </component>
                       <component id="c69eb" class="javax.swing.JTextField" binding="segmentName3">
                         <constraints>
-                          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="150" height="-1"/>
                             <maximum-size width="150" height="-1"/>
                           </grid>
@@ -625,6 +625,17 @@
                           <label value="Update"/>
                           <text value="Update"/>
                           <visible value="true"/>
+                        </properties>
+                      </component>
+                      <component id="97a92" class="javax.swing.JLabel" binding="invalidWeightLabel">
+                        <constraints>
+                          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Open Sans" size="11" style="1"/>
+                          <foreground color="-4503991"/>
+                          <text value="Invalid Weight. Please Try Again."/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                     </children>
