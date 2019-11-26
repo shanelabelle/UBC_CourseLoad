@@ -9,8 +9,9 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 
-public class Course {
+public class Course implements Iterable<Segment> {
 
     private String courseName;
     private ArrayList<Segment> segments;
@@ -69,6 +70,10 @@ public class Course {
         Collections.sort(this.segments, Collections.reverseOrder());
     }
 
+    public void clearSegments() {
+        this.segments = new ArrayList<Segment>();
+    }
+
     public ArrayList<Segment> getSegments() {
         return this.segments;
     }
@@ -86,5 +91,10 @@ public class Course {
         chart.getStyler().setChartTitleBoxVisible(false);
         return new XChartPanel<PieChart>(chart);
 
+    }
+
+    @Override
+    public Iterator<Segment> iterator() {
+        return this.segments.iterator();
     }
 }

@@ -2,6 +2,7 @@ package ui;
 
 
 import model.Course;
+import model.CourseLoad;
 import model.Segment;
 import model.User;
 
@@ -53,10 +54,11 @@ public class Main extends JFrame {
     private JButton editSegments;
     private JButton updateSegments;
     private ArrayList<JButton> courseButtonList;
-    private ArrayList<Course> courses;
     private CardLayout courseCards;
     private ArrayList<JTextField> segmentFields;
     private ArrayList<JTextField> weightFields;
+    private CourseLoad courseLoad;
+    private Course currentCourse;
 
 
     public Main(String title, User user) {
@@ -77,7 +79,6 @@ public class Main extends JFrame {
 
 
         courseButtonList = new ArrayList<>();
-        courses = new ArrayList<>();
         courseButtonList.add(courseButton0);
         courseButtonList.add(courseButton1);
         courseButtonList.add(courseButton2);
@@ -85,15 +86,14 @@ public class Main extends JFrame {
         courseButtonList.add(courseButton4);
         courseButtonList.add(courseButton5);
 
-        for (Course course : user.getCourseLoad()) {
-            courses.add(course);
-        }
+
+        courseLoad = user.getCourseLoad();
 
         int counter = 0;
 
-        while (counter < courses.size()) {
+        while (counter < courseLoad.size()) {
             courseButtonList.get(counter).setVisible(true);
-            courseButtonList.get(counter).setText(courses.get(counter).getName());
+            courseButtonList.get(counter).setText(courseLoad.get(counter).getName());
             counter = counter + 1;
         }
 
@@ -152,7 +152,8 @@ public class Main extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
 
-                Course course = courses.get(0);
+                Course course = user.getCourseLoad().get(0);
+                currentCourse = user.getCourseLoad().get(0);
 
                 courseTitle.setText(course.getCourseDescription());
 
@@ -160,11 +161,74 @@ public class Main extends JFrame {
                 course.addSegment(new Segment("Midterm",25));
                 course.addSegment(new Segment("Assignments",25));
 
+                ArrayList<Segment> segments = course.getSegments();
+
+                int counter = 0;
+
+                while (counter < segments.size()) {
+                    segmentFields.get(counter).setText(segments.get(counter).getType());
+                    weightFields.get(counter).setText(Integer.toString(segments.get(counter).getWeight()));
+                    for (JTextField textField: segmentFields) {
+                        textField.setEditable(false);
+                    }
+                    for (JTextField textField: weightFields) {
+                        textField.setEditable(false);
+                    }
+                    counter++;
+                }
+
                 JPanel pieChart = course.getCourseChart();
                 courseChart.removeAll();
                 courseChart.add(pieChart);
                 courseCards.show(pieChartPanel,"courseChart");
                 screens.show(mainPanel,"coursesCard");
+
+            }
+        });
+        editSegments.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                updateSegments.setVisible(true);
+                for (JTextField textField: segmentFields) {
+                    textField.setEditable(true);
+                }
+                for (JTextField textField: weightFields) {
+                    textField.setEditable(true);
+                }
+            }
+        });
+        updateSegments.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int counter = 0;
+                int weight = 0;
+
+                currentCourse.clearSegments();
+
+                //updates the current course with the new inputted segments
+
+                while (counter < segmentFields.size()) {
+                    try {
+                        weight = Integer.parseInt(weightFields.get(0).getText());
+                    } catch (NumberFormatException badInt) {
+                        weight = 0;
+                    }
+                    currentCourse.addSegment(new Segment(segmentFields.get(counter).getText(), weight));
+
+                    counter++;
+                }
+
+                for (JTextField textField: segmentFields) {
+                    textField.setEditable(false);
+                }
+                for (JTextField textField: weightFields) {
+                    textField.setEditable(false);
+                }
+
+                currentCourse.sortSegments();
+
+                updateSegments.setVisible(false);
 
             }
         });

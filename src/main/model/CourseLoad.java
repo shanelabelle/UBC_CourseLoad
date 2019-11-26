@@ -19,6 +19,14 @@ public class CourseLoad extends Observable implements Iterable<Course> {
 
     }
 
+    public Course get(int index) {
+        return this.courses.get(index);
+    }
+
+    public int size() {
+        return this.courses.size();
+    }
+
     public String toString() {
         fileOutput = "";
         int counter = 0;
