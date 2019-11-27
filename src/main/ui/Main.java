@@ -311,7 +311,7 @@ public class Main extends JFrame {
         mainFrame.setVisible(true);
     }
 
-    public void reDrawSegmentFields() {
+    private void reDrawSegmentFields() {
 
         clearSegmentFields();
 
@@ -328,7 +328,7 @@ public class Main extends JFrame {
         }
     }
 
-    public void drawCourseChart() {
+    private void drawCourseChart() {
         JPanel pieChart = currentCourse.getCourseChart();
         courseChart.removeAll();
         courseChart.add(pieChart);
@@ -337,7 +337,7 @@ public class Main extends JFrame {
 
     }
 
-    public void editableSegments(Boolean editable) {
+    private void editableSegments(Boolean editable) {
 
         if (editable == true) {
 
@@ -362,7 +362,7 @@ public class Main extends JFrame {
 
     }
 
-    public void changeCourseView(int courseNumber) {
+    private void changeCourseView(int courseNumber) {
 
         currentCourse = user.getCourseLoad().get(courseNumber);
 
@@ -375,7 +375,7 @@ public class Main extends JFrame {
 
     }
 
-    public void updateCurrentCourseSegments() {
+    private void updateCurrentCourseSegments() {
 
         int counter = 0;
         int weight = 0;
@@ -398,7 +398,7 @@ public class Main extends JFrame {
         }
     }
 
-    public void clearSegmentFields() {
+    private void clearSegmentFields() {
         for (JTextField textField: segmentFields) {
             textField.setText("");
         }
@@ -408,7 +408,7 @@ public class Main extends JFrame {
 
     }
 
-    public void editableCourses(Boolean editable) {
+    private void editableCourses(Boolean editable) {
         if (editable == true) {
 
             for (JTextField textField: courseFields) {
@@ -430,7 +430,7 @@ public class Main extends JFrame {
 
     }
 
-    public void reDrawCourseFields() {
+    private void reDrawCourseFields() {
         clearCourseFields();
 
 
@@ -450,7 +450,7 @@ public class Main extends JFrame {
         hideEmptyCourseField();
     }
 
-    public void clearCourseFields() {
+    private void clearCourseFields() {
         for (JTextField textField: courseFields) {
             textField.setText("");
         }
@@ -473,23 +473,15 @@ public class Main extends JFrame {
         }
     }
 
-    public void updateCourseLoad() {
+    private void updateCourseLoad() {
 
         ///updates courseload with newly modified courses
 
-        int counter = 0;
-
         // create temp courseload with new fields
-        ArrayList<Course> newCourseList = new ArrayList<>();
+        ArrayList<Course> newCourseList = addNewCourses();
 
         //adds new courses to both the previous courseload and the temp courselist
-        while (counter < courseFields.size()) {
-            if (!courseFields.get(counter).getText().isEmpty()) {
-                newCourseList.add(new Course(courseFields.get(counter).getText().toUpperCase()));
-                courseLoad.addCourse(courseFields.get(counter).getText().toUpperCase());
-            }
-            counter++;
-        }
+
 
         //walks over the old courseload and removes courses that are not in the new courselist
         int removalCounter = 0;
@@ -512,6 +504,22 @@ public class Main extends JFrame {
             textField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
         }
 
+    }
+
+    private ArrayList<Course> addNewCourses() {
+
+        ArrayList<Course> newCourseList = new ArrayList<>();
+
+        //adds new courses to both the previous courseload and the temp courselist
+        int counter = 0;
+        while (counter < courseFields.size()) {
+            if (!courseFields.get(counter).getText().isEmpty()) {
+                newCourseList.add(new Course(courseFields.get(counter).getText().toUpperCase()));
+                courseLoad.addCourse(courseFields.get(counter).getText().toUpperCase());
+            }
+            counter++;
+        }
+        return newCourseList;
     }
 
 }
