@@ -89,7 +89,7 @@ public class Main extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(background);
         this.pack();
-        this.setSize(550,550);
+        this.setSize(1920,1080);
         this.setLocationRelativeTo(null);
 
         screens = (CardLayout) (mainPanel.getLayout());
@@ -485,21 +485,24 @@ public class Main extends JFrame {
         //adds new courses to both the previous courseload and the temp courselist
         while (counter < courseFields.size()) {
             if (!courseFields.get(counter).getText().isEmpty()) {
-                newCourseList.add(new Course(courseFields.get(counter).getText()));
-                courseLoad.addCourse(courseFields.get(counter).getText());
+                newCourseList.add(new Course(courseFields.get(counter).getText().toUpperCase()));
+                courseLoad.addCourse(courseFields.get(counter).getText().toUpperCase());
             }
             counter++;
         }
 
         //walks over the old courseload and removes courses that are not in the new courselist
         int removalCounter = 0;
+        int size = courseLoad.size();
 
         while (removalCounter < courseLoad.size()) {
             Course course = courseLoad.get(removalCounter);
             if (!newCourseList.contains(course)) {
                 courseLoad.removeCourse(course.getName());
+                removalCounter = 0;
+            } else {
+                removalCounter++;
             }
-            removalCounter++;
         }
     }
 
