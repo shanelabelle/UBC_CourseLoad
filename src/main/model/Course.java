@@ -7,10 +7,7 @@ import org.knowm.xchart.style.PieStyler;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.*;
 
 public class Course implements Iterable<Segment> {
 
@@ -51,6 +48,23 @@ public class Course implements Iterable<Segment> {
     // EFFECTS: returns course name
     public String getName() {
         return this.courseName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Course segments = (Course) o;
+        return Objects.equals(courseName, segments.courseName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(courseName);
     }
 
     public void addSegment(Segment segment) {

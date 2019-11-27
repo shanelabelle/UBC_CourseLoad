@@ -71,6 +71,8 @@ public class Main extends JFrame {
     private JLabel courseTitle3;
     private JLabel courseTitle4;
     private JLabel courseTitle5;
+    private JButton editCoursesButton;
+    private JButton updateCourseButton;
     private ArrayList<JButton> courseButtonList;
     private CardLayout courseCards;
     private ArrayList<JTextField> segmentFields;
@@ -135,13 +137,7 @@ public class Main extends JFrame {
 
         courseLoad = user.getCourseLoad();
 
-        int counter = 0;
-
-        while (counter < courseLoad.size()) {
-            courseButtonList.get(counter).setVisible(true);
-            courseButtonList.get(counter).setText(courseLoad.get(counter).getName());
-            counter = counter + 1;
-        }
+        reDrawCourseFields();
 
 
         fieldColor = new Color(0,93,166);
@@ -174,6 +170,7 @@ public class Main extends JFrame {
         updateSegmentsButton.setVisible(false);
         editableSegments(false);
         invalidWeightLabel.setVisible(false);
+        updateCourseButton.setVisible(false);
 
 
 
@@ -266,6 +263,31 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeCourseView(5);
+
+            }
+        });
+        editCoursesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                updateCourseButton.setVisible(true);
+
+                editableCourses(true);
+            }
+        });
+        updateCourseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateCourseButton.setVisible(false);
+                //updates the current course with the new inputted segments
+                updateCourseLoad();
+
+
+                editableCourses(false);
+
+                reDrawCourseFields();
+
+
 
             }
         });
@@ -391,6 +413,7 @@ public class Main extends JFrame {
 
             for (JTextField textField: courseFields) {
                 textField.setEditable(true);
+                textField.setVisible(true);
             }
 
         }
@@ -398,26 +421,33 @@ public class Main extends JFrame {
         if (editable == false) {
             for (JTextField textField: courseFields) {
                 textField.setEditable(false);
+                if (textField.getText().isEmpty()) {
+                    textField.setVisible(false);
+                }
             }
 
         }
 
     }
 
-    public void redrawCourseFields() {
+    public void reDrawCourseFields() {
         clearCourseFields();
 
 
         int counter = 0;
 
-
-        // re-draws coursefields based on the current status of the course list in the courseload
         while (counter < courseLoad.size()) {
+
+            courseButtonList.get(counter).setText(courseLoad.get(counter).getName());
             courseFields.get(counter).setText(courseLoad.get(counter).getName());
             courseTitles.get(counter).setText(courseLoad.get(counter).getCourseDescription());
+            courseButtonList.get(counter).setVisible(true);
+            courseFields.get(counter).setVisible(true);
+            courseTitles.get(counter).setVisible(true);
 
-            counter++;
+            counter = counter + 1;
         }
+        hideEmptyCourseField();
     }
 
     public void clearCourseFields() {
@@ -427,30 +457,49 @@ public class Main extends JFrame {
         for (JLabel label: courseTitles) {
             label.setText("");
         }
+        for (JButton button: courseButtonList) {
+            button.setVisible(false);
+            button.setText("");
+        }
 
 
     }
 
+    public void hideEmptyCourseField() {
+        for (JTextField textField: courseFields) {
+            if (textField.getText().isEmpty()) {
+                textField.setVisible(false);
+            }
+        }
+    }
+
     public void updateCourseLoad() {
 
-        int counter = 0;
-        int weight = 0;
-        boolean validWeight = false;
+        ///updates courseload with newly modified courses
 
+        int counter = 0;
+
+        // create temp courseload with new fields
+        ArrayList<Course> newCourseList = new ArrayList<>();
+
+        //adds new courses to both the previous courseload and the temp courselist
         while (counter < courseFields.size()) {
-            try {
-                if (!weightFields.get(counter).getText().isEmpty()) {
-                    weight = Integer.parseInt(weightFields.get(counter).getText());
-                    validWeight = true;
-                }
-            } catch (NumberFormatException badInt) {
-                invalidWeightLabel.setVisible(true);
-                validWeight = false;
-            }
-            if (!segmentFields.get(counter).getText().isEmpty() && validWeight) {
-                currentCourse.addSegment(new Segment(segmentFields.get(counter).getText(), weight));
+            if (!courseFields.get(counter).getText().isEmpty()) {
+                newCourseList.add(new Course(courseFields.get(counter).getText()));
+                courseLoad.addCourse(courseFields.get(counter).getText());
             }
             counter++;
+        }
+
+        //walks over the old courseload and removes courses that are not in the new courselist
+        int removalCounter = 0;
+
+        while (removalCounter < courseLoad.size()) {
+            Course course = courseLoad.get(removalCounter);
+            if (!newCourseList.contains(course)) {
+                courseLoad.removeCourse(course.getName());
+            }
+            removalCounter++;
         }
     }
 
@@ -461,4 +510,5 @@ public class Main extends JFrame {
         }
 
     }
+
 }

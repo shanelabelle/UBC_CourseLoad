@@ -27,6 +27,16 @@ public class CourseLoad extends Observable implements Iterable<Course> {
         return this.courses.size();
     }
 
+    public boolean contains(String courseName) {
+        Course course = new Course(courseName);
+
+        if (this.courses.contains(course)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public String toString() {
         fileOutput = "";
         int counter = 0;
@@ -60,17 +70,11 @@ public class CourseLoad extends Observable implements Iterable<Course> {
     // MODIFIES: this
     // EFFECTS: removes new course to the user's courseload
     public void removeCourse(String courseName) {
+        Course course = new Course(courseName);
 
-        int counter = 0;
-
-        while (counter < this.courses.size()) {
-            if (this.courses.get(counter).getName().equals(courseName)) {
-                this.courses.remove(counter);
-                this.numberOfCourses--;
-                counter++;
-            } else {
-                counter++;
-            }
+        if (this.courses.contains(course)) {
+            this.courses.remove(course);
+            this.numberOfCourses--;
         }
 
     }

@@ -242,7 +242,7 @@
               </component>
               <component id="b6bb6" class="javax.swing.JLabel" binding="majorLabel">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="53" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="5" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-16753242"/>
@@ -309,7 +309,7 @@
                           <font name="Open Sans" size="28" style="1"/>
                           <foreground color="-16753242"/>
                           <text value="COURSE XXX"/>
-                          <visible value="true"/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="ffe68" class="javax.swing.JLabel" binding="courseTitle0">
@@ -325,6 +325,7 @@
                           <font name="Open Sans Light" size="28" style="0"/>
                           <foreground color="-16753242"/>
                           <text value="Course Description"/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="f4e0d" class="javax.swing.JTextField" binding="courseField1">
@@ -340,7 +341,7 @@
                           <font name="Open Sans" size="28" style="1"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
-                          <visible value="true"/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="19407" class="javax.swing.JLabel" binding="courseTitle1">
@@ -356,6 +357,7 @@
                           <font name="Open Sans Light" size="28" style="0"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="8c0bb" class="javax.swing.JTextField" binding="courseField2">
@@ -371,7 +373,7 @@
                           <font name="Open Sans" size="28" style="1"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
-                          <visible value="true"/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="be845" class="javax.swing.JLabel" binding="courseTitle2">
@@ -387,6 +389,7 @@
                           <font name="Open Sans Light" size="28" style="0"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="d5a42" class="javax.swing.JTextField" binding="courseField3">
@@ -402,7 +405,7 @@
                           <font name="Open Sans" size="28" style="1"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
-                          <visible value="true"/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="70e6c" class="javax.swing.JLabel" binding="courseTitle3">
@@ -418,6 +421,7 @@
                           <font name="Open Sans Light" size="28" style="0"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="d6f15" class="javax.swing.JTextField" binding="courseField4">
@@ -433,7 +437,7 @@
                           <font name="Open Sans" size="28" style="1"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
-                          <visible value="true"/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="b7b47" class="javax.swing.JLabel" binding="courseTitle4">
@@ -449,6 +453,7 @@
                           <font name="Open Sans Light" size="28" style="0"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="1c847" class="javax.swing.JTextField" binding="courseField5">
@@ -464,7 +469,7 @@
                           <font name="Open Sans" size="28" style="1"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
-                          <visible value="true"/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                       <component id="ea419" class="javax.swing.JLabel" binding="courseTitle5">
@@ -480,43 +485,44 @@
                           <font name="Open Sans Light" size="28" style="0"/>
                           <foreground color="-16753242"/>
                           <text value=""/>
+                          <visible value="false"/>
                         </properties>
                       </component>
-                      <component id="e7177" class="javax.swing.JButton">
+                      <component id="e7177" class="javax.swing.JButton" binding="editCoursesButton">
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="5" use-parent-layout="false">
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false">
                             <minimum-size width="75" height="-1"/>
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
                         <properties>
-                          <background color="-16753242"/>
+                          <background color="-672161"/>
                           <borderPainted value="true"/>
                           <contentAreaFilled value="true"/>
                           <focusPainted value="false"/>
                           <font name="Open Sans" size="16" style="1"/>
-                          <foreground color="-1"/>
+                          <foreground color="-16768699"/>
                           <hideActionText value="false"/>
                           <label value="Edit"/>
                           <text value="Edit"/>
                         </properties>
                       </component>
-                      <component id="13301" class="javax.swing.JButton">
+                      <component id="13301" class="javax.swing.JButton" binding="updateCourseButton">
                         <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false">
                             <minimum-size width="75" height="-1"/>
                             <preferred-size width="150" height="-1"/>
                           </grid>
                         </constraints>
                         <properties>
                           <autoscrolls value="false"/>
-                          <background color="-672161"/>
+                          <background color="-14048912"/>
                           <focusPainted value="false"/>
                           <font name="Open Sans" size="16" style="1"/>
-                          <foreground color="-16768699"/>
+                          <foreground color="-1"/>
                           <label value="Update"/>
                           <text value="Update"/>
-                          <visible value="true"/>
+                          <visible value="false"/>
                         </properties>
                       </component>
                     </children>
@@ -845,12 +851,12 @@
                           </grid>
                         </constraints>
                         <properties>
-                          <background color="-16753242"/>
+                          <background color="-672161"/>
                           <borderPainted value="true"/>
                           <contentAreaFilled value="true"/>
                           <focusPainted value="false"/>
                           <font name="Open Sans" size="11" style="1"/>
-                          <foreground color="-1"/>
+                          <foreground color="-16768699"/>
                           <hideActionText value="false"/>
                           <label value="Edit"/>
                           <text value="Edit"/>
@@ -864,10 +870,10 @@
                         </constraints>
                         <properties>
                           <autoscrolls value="false"/>
-                          <background color="-672161"/>
+                          <background color="-14048912"/>
                           <focusPainted value="false"/>
                           <font name="Open Sans" size="11" style="1"/>
-                          <foreground color="-16768699"/>
+                          <foreground color="-1"/>
                           <label value="Update"/>
                           <text value="Update"/>
                           <visible value="true"/>
