@@ -79,6 +79,7 @@ public class Main extends JFrame {
     private Course currentCourse;
     private ArrayList<JTextField> courseFields;
     private ArrayList<JLabel> courseTitles;
+    private Color fieldColor;
 
 
     public Main(String title, User user) {
@@ -143,34 +144,32 @@ public class Main extends JFrame {
         }
 
 
-        Color fieldColor = new Color(0,93,166);
+        fieldColor = new Color(0,93,166);
         segmentFields = new ArrayList<>();
         weightFields = new ArrayList<>();
 
-        segmentName0.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
-        weight0.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
         segmentFields.add(segmentName0);
         weightFields.add(weight0);
-        segmentName1.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
-        weight1.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+
         segmentFields.add(segmentName1);
         weightFields.add(weight1);
-        segmentName2.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
-        weight2.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+
         segmentFields.add(segmentName2);
         weightFields.add(weight2);
-        segmentName3.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
-        weight3.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+
         segmentFields.add(segmentName3);
         weightFields.add(weight3);
-        segmentName4.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
-        weight4.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+
         segmentFields.add(segmentName4);
         weightFields.add(weight4);
-        segmentName5.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
-        weight5.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+
         segmentFields.add(segmentName5);
         weightFields.add(weight5);
+
+        //Stylize all text fields
+        stylizeTextFields(segmentFields);
+        stylizeTextFields(weightFields);
+        stylizeTextFields(courseFields);
 
         updateSegmentsButton.setVisible(false);
         editableSegments(false);
@@ -453,5 +452,13 @@ public class Main extends JFrame {
             }
             counter++;
         }
+    }
+
+    private void stylizeTextFields(ArrayList<JTextField> fields) {
+
+        for (JTextField textField : fields) {
+            textField.setBorder(BorderFactory.createMatteBorder(0,0,1,0,fieldColor));
+        }
+
     }
 }

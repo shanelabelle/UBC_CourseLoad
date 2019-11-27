@@ -230,7 +230,7 @@
             <children>
               <component id="4a317" class="javax.swing.JLabel" binding="userNameLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="3" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="5" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-16753242"/>
@@ -242,7 +242,7 @@
               </component>
               <component id="b6bb6" class="javax.swing.JLabel" binding="majorLabel">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="3" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="53" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-16753242"/>
@@ -253,7 +253,7 @@
               </component>
               <component id="44cd" class="javax.swing.JLabel" binding="courseLoadLabel">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="3" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="5" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-16753242"/>
@@ -267,7 +267,7 @@
               </component>
               <component id="4d426" class="javax.swing.JLabel" binding="dashboardLabel">
                 <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="3" use-parent-layout="false"/>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="5" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-16753242"/>
@@ -300,7 +300,7 @@
                         <constraints>
                           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
-                            <maximum-size width="400" height="-1"/>
+                            <maximum-size width="250" height="-1"/>
                           </grid>
                         </constraints>
                         <properties>
@@ -331,7 +331,7 @@
                         <constraints>
                           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
-                            <maximum-size width="400" height="-1"/>
+                            <maximum-size width="250" height="-1"/>
                           </grid>
                         </constraints>
                         <properties>
@@ -362,7 +362,7 @@
                         <constraints>
                           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
-                            <maximum-size width="400" height="-1"/>
+                            <maximum-size width="250" height="-1"/>
                           </grid>
                         </constraints>
                         <properties>
@@ -393,7 +393,7 @@
                         <constraints>
                           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
-                            <maximum-size width="400" height="-1"/>
+                            <maximum-size width="250" height="-1"/>
                           </grid>
                         </constraints>
                         <properties>
@@ -424,7 +424,7 @@
                         <constraints>
                           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
-                            <maximum-size width="400" height="-1"/>
+                            <maximum-size width="250" height="-1"/>
                           </grid>
                         </constraints>
                         <properties>
@@ -455,7 +455,7 @@
                         <constraints>
                           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="5" use-parent-layout="false">
                             <preferred-size width="250" height="-1"/>
-                            <maximum-size width="400" height="-1"/>
+                            <maximum-size width="250" height="-1"/>
                           </grid>
                         </constraints>
                         <properties>
