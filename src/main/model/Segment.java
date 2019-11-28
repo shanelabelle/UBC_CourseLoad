@@ -38,13 +38,6 @@ public class Segment implements Comparable<Segment> {
         return this.weight;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
 
     @Override
     public int compareTo(Segment otherSegment) {
