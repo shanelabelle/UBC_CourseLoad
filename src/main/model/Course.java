@@ -21,15 +21,19 @@ public class Course implements Iterable<Segment> {
         this.courseName = name;
         this.segments = new ArrayList<>();
         setCourseDescription();
-        this.segments.add(new Segment(this.courseName,100));
+        this.segments.add(new Segment("Final",100));
 
+    }
+
+    public Boolean contains(Segment segment) {
+        return this.segments.contains(segment);
     }
 
     public String getCourseDescription() {
         return this.courseDescription;
     }
 
-    public void setCourseDescription() {
+    private void setCourseDescription() {
         FetchCourseDescription fetcher = new FetchCourseDescription();
         try {
             this.courseDescription = fetcher.getCourseTitle(this.courseName);

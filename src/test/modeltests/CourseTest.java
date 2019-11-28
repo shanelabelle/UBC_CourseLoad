@@ -36,10 +36,11 @@ class CourseTest {
         assertEquals("Software Construction",course.getCourseDescription());
     }
 
+
     @Test
     void addSegmentTest() {
         course.addSegment(segment1);
-        assertEquals(segment1, course.getSegments().get(0));
+        assertTrue(course.contains(segment1));
 
     }
 
@@ -47,15 +48,19 @@ class CourseTest {
     void removeSegmentTest() {
         course.addSegment(segment1);
         course.addSegment(segment2);
-        assertEquals(2,course.getSegments().size());
+        assertTrue(course.contains(segment1));
+        assertTrue(course.contains(segment2));
 
         course.removeSegment(segment2);
-        assertEquals(1,course.getSegments().size());
-        assertEquals(segment1, course.getSegments().get(0));
+        assertFalse(course.contains(segment2));
+
     }
 
     @Test
     void sortSegmentTest() {
+
+        course.clearSegments();
+
         course.addSegment(segment2);
         course.addSegment(segment1);
 
@@ -67,6 +72,21 @@ class CourseTest {
         assertEquals(segment1, course.getSegments().get(0));
         assertEquals(segment2, course.getSegments().get(1));
 
-
     }
+
+    @Test
+    void equalsTestTrue() {
+        Course otherCourse = new Course("CPSC 210");
+
+        assertEquals(course,otherCourse);
+    }
+
+    @Test
+    void equalsTestFalse() {
+        Course otherCourse = new Course("PHYS 333");
+
+        assertNotEquals(course,otherCourse);
+    }
+
+
 }
