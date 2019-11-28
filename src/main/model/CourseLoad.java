@@ -38,24 +38,37 @@ public class CourseLoad extends Observable implements Iterable<Course> {
 
     public String toString() {
         fileOutput = "";
-        int counter = 0;
-        while (counter < this.courses.size()) {
-            if (counter == 0) {
-                fileOutput = this.courses.get(0).getName();
-                counter++;
-            } else {
-                fileOutput = fileOutput + ", " + this.courses.get(counter).getName();
-                counter++;
+
+        for (Course course: courses) {
+            fileOutput = fileOutput + course.getName() + ": ";
+            for (Segment segment: course) {
+                if (segment.equals(course.getSegments().get(0))) {
+                    fileOutput = fileOutput + segment.getType() + " " + segment.getWeight();
+                } else {
+                    fileOutput = fileOutput + ", " + segment.getType() + " " + segment.getWeight();
+                }
             }
+            fileOutput = fileOutput + "\n";
+
         }
+//        int counter = 0;
+//        while (counter < this.courses.size()) {
+//            if (counter == 0) {
+//                fileOutput = this.courses.get(0).getName() + ": ";
+//                counter++;
+//            } else {
+//                fileOutput = fileOutput + ", " + this.courses.get(counter).getName();
+//                counter++;
+//            }
+//        }
         return fileOutput;
     }
 
     // REQUIRES: a string
     // MODIFIES: this
     // EFFECTS: adds new course to the user's courseload
-    public void addCourse(String courseName) {
-        Course newCourse = new Course(courseName);
+    public void addCourse(Course newCourse) {
+//        Course newCourse = new Course(courseName);
         if (!courses.contains(newCourse)) {
             this.courses.add(newCourse);
             this.numberOfCourses = ++this.numberOfCourses;
@@ -65,8 +78,8 @@ public class CourseLoad extends Observable implements Iterable<Course> {
     // REQUIRES: a string
     // MODIFIES: this
     // EFFECTS: removes new course to the user's courseload
-    public void removeCourse(String courseName) {
-        Course course = new Course(courseName);
+    public void removeCourse(Course course) {
+//        Course course = new Course(courseName);
 
         if (this.courses.contains(course)) {
             this.courses.remove(course);

@@ -1,7 +1,10 @@
 package ui;
 
+import com.google.gson.Gson;
 import exceptions.BadUserName;
 import exceptions.UserFileNotFound;
+import model.Course;
+import model.Segment;
 import model.User;
 
 import java.io.*;
@@ -22,6 +25,10 @@ public class UserSetup {
 
     public User getUser() {
         return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 
@@ -76,9 +83,10 @@ public class UserSetup {
 
         while (!doneAddingCourses) {
             System.out.println("To add a course, please enter a course title:");
-            String course = this.scan.nextLine();
+            String courseString = this.scan.nextLine();
+            Course course = new Course(courseString);
             this.user.getCourseLoad().addCourse(course);
-            System.out.println("You have added " + course + ", would you like to add another course?(Y/N)");
+            System.out.println("You have added " + courseString + ", would you like to add another course?(Y/N)");
             String addcourse = this.scan.nextLine().toUpperCase();
 
             if (addcourse.equals("N")) {
@@ -119,12 +127,14 @@ public class UserSetup {
 
     public void saveUser() throws IOException {
 
+
         File userFile = new File("./data/" + this.user.getUsername() + ".txt");
         FileOutputStream output = new FileOutputStream(userFile);
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(output));
 
-
+        bw.write(this.user.getUsername());
+        bw.newLine();
         bw.write(this.user.getFirstName());
         bw.newLine();
         bw.write(this.user.getLastName());
@@ -179,19 +189,55 @@ public class UserSetup {
     public User inputListToUser(ArrayList<String> inputList) {
 
         User userToLoad = new User();
-        userToLoad.setFirstName(inputList.get(0));
-        userToLoad.setLastName(inputList.get(1));
-        userToLoad.setMajor(inputList.get(2));
+        userToLoad.setUserName(inputList.get(0));
+        userToLoad.setFirstName(inputList.get(1));
+        userToLoad.setLastName(inputList.get(2));
+        userToLoad.setMajor(inputList.get(3));
 
-        String[] courses = inputList.get(3).split(", ");
-
-        for (String course: courses) {
-            userToLoad.getCourseLoad().addCourse(course);
-        }
+        addCoursesToUser(userToLoad,inputList);
 
         return userToLoad;
 
     }
+
+    private void addCoursesToUser(User userToLoad,ArrayList<String> inputList) {
+
+        int counter = 4;
+
+        while (counter < inputList.size()) {
+            String line = inputList.get(counter);
+            String[] elements = line.split(": ");
+            Course course = new Course(elements[0]);
+            course.clearSegments();
+            String[] segments = elements[1].split(", ");
+
+            addSegmentsToCourse(course,segments);
+            userToLoad.getCourseLoad().addCourse(course);
+            counter++;
+        }
+
+    }
+
+    private void addSegmentsToCourse(Course course, String[] segments) {
+
+        for (String segment: segments) {
+            String[] split = segment.split(" ");
+            String type = split[0];
+            int counter = 1;
+            while (counter < split.length - 1) {
+                type = type + " " + split[counter];
+                counter++;
+            }
+            int weight = 0;
+            try {
+                weight = Integer.parseInt(split[counter]);
+            } catch (Exception e) {
+                weight = 0;
+            }
+            course.addSegment(new Segment(type,weight));
+        }
+    }
+
 
 
 }

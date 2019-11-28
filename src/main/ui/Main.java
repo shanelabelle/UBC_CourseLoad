@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main extends JFrame {
@@ -82,6 +83,7 @@ public class Main extends JFrame {
     private ArrayList<JTextField> courseFields;
     private ArrayList<JLabel> courseTitles;
     private Color fieldColor;
+    private UserSetup userController;
 
 
     public Main(String title, User user) {
@@ -96,6 +98,7 @@ public class Main extends JFrame {
         courseCards = (CardLayout) (pieChartPanel.getLayout());
 
         this.user = user;
+        this.userController = new UserSetup();
 
         userNameLabel.setText(user.getFirstName() + " " + user.getLastName());
         majorLabel.setText(user.getMajor());
@@ -229,6 +232,8 @@ public class Main extends JFrame {
 
                 updateSegmentsButton.setVisible(false);
 
+                saveUser();
+
             }
         });
         courseButton1.addActionListener(new ActionListener() {
@@ -287,7 +292,7 @@ public class Main extends JFrame {
 
                 reDrawCourseFields();
 
-
+                saveUser();
 
             }
         });
@@ -490,7 +495,7 @@ public class Main extends JFrame {
         while (removalCounter < courseLoad.size()) {
             Course course = courseLoad.get(removalCounter);
             if (!newCourseList.contains(course)) {
-                courseLoad.removeCourse(course.getName());
+                courseLoad.removeCourse(course);
                 removalCounter = 0;
             } else {
                 removalCounter++;
@@ -515,11 +520,21 @@ public class Main extends JFrame {
         while (counter < courseFields.size()) {
             if (!courseFields.get(counter).getText().isEmpty()) {
                 newCourseList.add(new Course(courseFields.get(counter).getText().toUpperCase()));
-                courseLoad.addCourse(courseFields.get(counter).getText().toUpperCase());
+                courseLoad.addCourse(new Course(courseFields.get(counter).getText().toUpperCase()));
             }
             counter++;
         }
         return newCourseList;
+    }
+
+    private void saveUser() {
+
+        userController.setUser(user);
+        try {
+            userController.saveUser();
+        } catch (IOException badSave) {
+            System.out.println("Bad Save");
+        }
     }
 
 }

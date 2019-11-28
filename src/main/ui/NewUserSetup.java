@@ -1,5 +1,6 @@
 package ui;
 
+import model.Course;
 import model.CourseLoad;
 import model.User;
 
@@ -146,7 +147,8 @@ public class NewUserSetup extends JFrame {
 
         for (JTextField textField : courseFields) {
             if (!(textField.getText().isEmpty())) {
-                userCourses.addCourse(textField.getText().toUpperCase());
+                Course newCourse = new Course(textField.getText().toUpperCase());
+                userCourses.addCourse(newCourse);
             }
         }
     }

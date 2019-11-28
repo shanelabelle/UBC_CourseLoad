@@ -12,25 +12,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CourseLoadTest {
     CourseLoad courseload;
+    Course course;
 
 
     @BeforeEach
     void setUp() {
         User guy = new User();
         courseload = new CourseLoad(guy);
+        course = new Course("CPSC 210");
     }
 
     @Test
     void addCourseTest() {
-        courseload.addCourse("CPSC 210");
+        courseload.addCourse(course);
 
         assertTrue(courseload.contains("CPSC 210"));
     }
 
     @Test
     void addCourseTestAlreadyThere() {
-        courseload.addCourse("CPSC 210");
-        courseload.addCourse("CPSC 210");
+        courseload.addCourse(course);
+        courseload.addCourse(course);
         assertTrue(courseload.contains("CPSC 210"));
         assertEquals(1,courseload.size());
 
@@ -38,23 +40,23 @@ class CourseLoadTest {
 
     @Test
     void removeCourseTestEmpty() {
-        courseload.removeCourse("CPSC 210");
+        courseload.removeCourse(course);
         assertTrue(courseload.getCourseList().isEmpty());
     }
 
     @Test
     void removeCourseTest() {
-        courseload.addCourse("CPSC 210");
-        courseload.removeCourse("CPSC 210");
+        courseload.addCourse(course);
+        courseload.removeCourse(course);
 
         assertTrue(courseload.getCourseList().isEmpty());
     }
 
     @Test
     void getCourseListTest() {
-        courseload.addCourse("CPSC 210");
-        courseload.addCourse("PHYS 333");
-        courseload.addCourse("MATH 302");
+        courseload.addCourse(course);
+        courseload.addCourse(new Course("PHYS 333"));
+        courseload.addCourse(new Course("MATH 302"));
 
         ArrayList<String> coursecheck = new ArrayList();
 
@@ -72,9 +74,9 @@ class CourseLoadTest {
 
     @Test
     void toStringTest() {
-        courseload.addCourse("CPSC 210");
-        courseload.addCourse("PHYS 333");
-        courseload.addCourse("MATH 302");
+        courseload.addCourse(new Course("CPSC 210"));
+        courseload.addCourse(new Course("PHYS 333"));
+        courseload.addCourse(new Course("MATH 302"));
 
         assertEquals(courseload.toString(), "CPSC 210, PHYS 333, MATH 302");
 
@@ -84,10 +86,10 @@ class CourseLoadTest {
     void getNumberOfCoursesTest() {
         assertEquals(0,courseload.getNumberOfCourses());
 
-        courseload.addCourse("CPSC 210");
+        courseload.addCourse(new Course("CPSC 210"));
         assertEquals(1,courseload.getNumberOfCourses());
 
-        courseload.addCourse("PHYS 333");
+        courseload.addCourse(new Course("PHYS 333"));
         assertEquals(2,courseload.getNumberOfCourses());
 
         courseload.removeAllCourses();
@@ -96,9 +98,9 @@ class CourseLoadTest {
 
     @Test
     void removeAllCoursesTest() {
-        courseload.addCourse("CPSC 210");
-        courseload.addCourse("PHYS 333");
-        courseload.addCourse("MATH 302");
+        courseload.addCourse(new Course("CPSC 210"));
+        courseload.addCourse(new Course("PHYS 333"));
+        courseload.addCourse(new Course("MATH 302"));
 
         courseload.removeAllCourses();
 
@@ -110,9 +112,9 @@ class CourseLoadTest {
     @Test
     void getTestTrue() {
 
-        courseload.addCourse("CPSC 210");
-        courseload.addCourse("PHYS 333");
-        courseload.addCourse("MATH 302");
+        courseload.addCourse(new Course("CPSC 210"));
+        courseload.addCourse(new Course("PHYS 333"));
+        courseload.addCourse(new Course("MATH 302"));
 
         Course course1 = new Course("CPSC 210");
         Course course2 = new Course("PHYS 333");
@@ -137,7 +139,7 @@ class CourseLoadTest {
 
     @Test
     void sizeTest() {
-        courseload.addCourse("CPSC 210");
+        courseload.addCourse(new Course("CPSC 210"));
 
         assertEquals(1,courseload.size());
 
@@ -150,7 +152,7 @@ class CourseLoadTest {
 
     @Test
     void containsTestTrue() {
-        courseload.addCourse("CPSC 210");
+        courseload.addCourse(new Course("CPSC 210"));
 
         assertTrue(courseload.contains("CPSC 210"));
     }
@@ -162,7 +164,7 @@ class CourseLoadTest {
 
     @Test
     void iteratorTest() {
-        courseload.addCourse("CPSC 210");
+        courseload.addCourse(new Course("CPSC 210"));
         ArrayList<Course> courseList = new ArrayList<>();
         courseList.add(new Course("CPSC 210"));
 
