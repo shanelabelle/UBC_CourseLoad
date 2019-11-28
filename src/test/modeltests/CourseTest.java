@@ -4,6 +4,12 @@ import model.Course;
 import model.Segment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.knowm.xchart.PieChart;
+import org.knowm.xchart.XChartPanel;
+import org.knowm.xchart.style.PieStyler;
+
+import java.awt.*;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -86,6 +92,55 @@ class CourseTest {
         Course otherCourse = new Course("PHYS 333");
 
         assertNotEquals(course,otherCourse);
+    }
+
+    @Test
+    void equalsTestNull() {
+        assertNotEquals(null,course);
+    }
+
+    @Test
+    void equalsTestSame() {
+        assertEquals(course,course);
+    }
+
+    @Test
+    void clearSegmentsTest() {
+
+        course.addSegment(segment1);
+        course.addSegment(segment2);
+        assertFalse(course.getSegments().isEmpty());
+
+        course.clearSegments();
+        assertTrue(course.getSegments().isEmpty());
+
+    }
+
+    @Test
+    void getSegmentsTest() {
+        ArrayList<Segment> segments = new ArrayList<>();
+        course.clearSegments();
+        course.addSegment(segment1);
+        course.addSegment(segment2);
+
+        segments.add(segment1);
+        segments.add(segment2);
+
+        assertEquals(segments, course.getSegments());
+    }
+
+    @Test
+    void getCourseChartTest() {
+        PieChart chart = new PieChart(400,400);
+        chart.addSeries("Final", 100);
+        chart.getStyler().setChartBackgroundColor(Color.WHITE);
+        chart.getStyler().setPlotBorderColor(Color.WHITE);
+        chart.getStyler().setChartTitleBoxVisible(false);
+        chart.getStyler().setAnnotationType(PieStyler.AnnotationType.valueOf("LabelAndPercentage"));
+        XChartPanel<PieChart> panel = new XChartPanel(chart);
+
+        assertEquals(panel.getPreferredSize(),course.getCourseChart().getPreferredSize());
+
     }
 
 
