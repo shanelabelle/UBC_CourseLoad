@@ -15,7 +15,6 @@ public class CourseLoad extends Observable implements Iterable<Course> {
         this.courses = new ArrayList<>();
         this.numberOfCourses = 0;
         this.user = user;
-        addObserver(this.user);
 
     }
 
@@ -59,8 +58,6 @@ public class CourseLoad extends Observable implements Iterable<Course> {
         Course newCourse = new Course(courseName);
         //NEED TO OVERRIDE HASHCODE AND EQUALS ON COURSES TO GET THIS TO WORK
         if (!courses.contains(newCourse)) {
-            setChanged();
-            notifyObservers(newCourse);
             this.courses.add(newCourse);
             this.numberOfCourses = ++this.numberOfCourses;
         }

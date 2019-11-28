@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.Observable;
 import java.util.Observer;
 
-public class User implements Observer {
+public class User {
     private String username;
     private String firstName;
     private String lastName;
@@ -22,14 +22,6 @@ public class User implements Observer {
 
     }
 
-    @Override
-    public void update(Observable observable, Object arg) {
-        Course course = (Course) arg;
-        if (!(course.getName() == null)) {
-            System.out.println(course.getName() + " has been added to your courseload!");
-        }
-
-    }
 
     public String toString() {
         userString = "Name: " + this.firstName + " " + this.lastName + "\n"
@@ -40,7 +32,7 @@ public class User implements Observer {
 
     }
 
-    public void setUsername(String name) {
+    public void setUserName(String name) {
         this.username = name;
     }
 

@@ -105,7 +105,7 @@ public class NewUserSetup extends JFrame {
         if ((userNameField.getText().isEmpty())) {
             throw new EmptyUserField();
         } else {
-            user.setUsername(userNameField.getText());
+            user.setUserName(userNameField.getText());
         }
     }
 

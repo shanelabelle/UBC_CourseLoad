@@ -1,5 +1,6 @@
 package modeltests;
 
+import model.Course;
 import model.CourseLoad;
 import model.User;
 import org.junit.jupiter.api.BeforeEach;
@@ -89,6 +90,59 @@ class CourseLoadTest {
         assertEquals(0,courseload.getNumberOfCourses());
         assertTrue(courseload.getCourseList().isEmpty());
 
+    }
+
+    @Test
+    void getTestTrue() {
+
+        courseload.addCourse("CPSC 210");
+        courseload.addCourse("PHYS 333");
+        courseload.addCourse("MATH 302");
+
+        Course course1 = new Course("CPSC 210");
+        Course course2 = new Course("PHYS 333");
+        Course course3 = new Course("MATH 302");
+
+        assertEquals(courseload.get(0),course1);
+        assertEquals(courseload.get(1),course2);
+        assertEquals(courseload.get(2),course3);
+
+    }
+
+    @Test
+    void getTestFalse() {
+        try {
+            courseload.get(0);
+            fail();
+        } catch (Exception e){
+
+        }
+
+    }
+
+    @Test
+    void sizeTest() {
+        courseload.addCourse("CPSC 210");
+
+        assertEquals(1,courseload.size());
+
+    }
+
+    @Test
+    void sizeTestEmpty() {
+        assertEquals(0,courseload.size());
+    }
+
+    @Test
+    void containsTestTrue() {
+        courseload.addCourse("CPSC 210");
+
+        assertTrue(courseload.contains("CPSC 210"));
+    }
+
+    @Test
+    void containsTestFalse() {
+        assertFalse(courseload.contains("CPSC 210"));
     }
 
 }
