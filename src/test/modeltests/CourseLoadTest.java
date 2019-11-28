@@ -78,7 +78,7 @@ class CourseLoadTest {
         courseload.addCourse(new Course("PHYS 333"));
         courseload.addCourse(new Course("MATH 302"));
 
-        assertEquals(courseload.toString(), "CPSC 210, PHYS 333, MATH 302");
+        assertEquals("CPSC 210: Final 100\nPHYS 333: Final 100\nMATH 302: Final 100\n",(courseload.toString()));
 
     }
 

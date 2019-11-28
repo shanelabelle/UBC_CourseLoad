@@ -23,14 +23,6 @@ public class User {
     }
 
 
-    public String toString() {
-        userString = "Name: " + this.firstName + " " + this.lastName + "\n"
-                + "Major: " + this.major + "\n"
-                + "Courses: " + this.courseLoad;
-
-        return userString;
-
-    }
 
     public void setUserName(String name) {
         this.username = name;

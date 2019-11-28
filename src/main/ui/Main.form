@@ -274,7 +274,7 @@
                   <enabled value="true"/>
                   <font name="Open Sans Light" size="20" style="0"/>
                   <foreground color="-16753242"/>
-                  <text value="Recent Activity"/>
+                  <text value="Courses"/>
                 </properties>
               </component>
               <grid id="17f62" binding="homeContent" layout-manager="CardLayout" hgap="0" vgap="0">

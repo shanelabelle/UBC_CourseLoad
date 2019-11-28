@@ -191,6 +191,7 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 screens.show(mainPanel,"coursesCard");
+                changeCourseView(0);
 
             }
         });

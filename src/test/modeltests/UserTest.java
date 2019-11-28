@@ -53,15 +53,6 @@ class UserTest {
     }
 
 
-    @Test
-    void toStringTest() {
-        user.setFirstName("Shane");
-        user.setLastName("Labelle");
-        user.setMajor("Computer Science");
-        user.getCourseLoad().addCourse(new Course("CPSC 210"));
-        assertEquals(user.toString(),"Name: Shane Labelle\nMajor: Computer Science\nCourses: CPSC 210");
-
-    }
 
     @Test
     void setUserNameTest() {
