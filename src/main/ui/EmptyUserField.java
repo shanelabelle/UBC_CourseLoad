@@ -1,4 +1,4 @@
-package exceptions;
+package ui;
 
 public class EmptyUserField extends Exception {
     private String message;

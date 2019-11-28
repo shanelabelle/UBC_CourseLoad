@@ -1,4 +1,4 @@
-package exceptions;
+package ui;
 
 public class EmptyMajorField extends Exception {
     private String message;

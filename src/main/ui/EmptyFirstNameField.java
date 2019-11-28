@@ -1,4 +1,4 @@
-package exceptions;
+package ui;
 
 public class EmptyFirstNameField extends Exception {
     private String message;

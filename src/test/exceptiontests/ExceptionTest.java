@@ -24,7 +24,7 @@ public class ExceptionTest {
     void testUserLoginGoodUser() {
 
         try{
-            this.testUser.loadUser("Shane Labelle");
+            this.testUser.loadUser("Shane");
 
         } catch (Exception e) {
             fail();
@@ -45,6 +45,7 @@ public class ExceptionTest {
 
         }
     }
+
 
 
 }

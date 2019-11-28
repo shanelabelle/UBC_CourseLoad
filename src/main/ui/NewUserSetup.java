@@ -1,6 +1,5 @@
 package ui;
 
-import exceptions.*;
 import model.CourseLoad;
 import model.User;
 
