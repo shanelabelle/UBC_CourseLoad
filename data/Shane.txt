@@ -1,4 +1,9 @@
 Shane
+Shane
 Labelle
 Computer Science
-CPSC 210, MATH 302, CPSC 121, KIN 343, PHYS 333
+CPSC 121: Final 40, Midterms 24, Assignments 14, Labs 14, Quizzes 4, Other 4
+CPSC 210: Final 45, Midterm 20, Quizzes 16, Demos 14, Lecture Tickets 5
+MATH 302: Final 50, Midterm 33, Assignments 17
+PHYS 333: Final 40, Problem Sets 20, Experiments 20, Big Picture 16, Test My Skills 4
+KIN 343: Final 25, Midterm 25, Quizzes 25, Assignments 25
