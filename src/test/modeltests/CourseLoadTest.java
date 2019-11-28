@@ -24,7 +24,22 @@ class CourseLoadTest {
     void addCourseTest() {
         courseload.addCourse("CPSC 210");
 
-        assertEquals(courseload.getCourseList().get(0).toString(), "CPSC 210");
+        assertTrue(courseload.contains("CPSC 210"));
+    }
+
+    @Test
+    void addCourseTestAlreadyThere() {
+        courseload.addCourse("CPSC 210");
+        courseload.addCourse("CPSC 210");
+        assertTrue(courseload.contains("CPSC 210"));
+        assertEquals(1,courseload.size());
+
+    }
+
+    @Test
+    void removeCourseTestEmpty() {
+        courseload.removeCourse("CPSC 210");
+        assertTrue(courseload.getCourseList().isEmpty());
     }
 
     @Test
@@ -143,6 +158,16 @@ class CourseLoadTest {
     @Test
     void containsTestFalse() {
         assertFalse(courseload.contains("CPSC 210"));
+    }
+
+    @Test
+    void iteratorTest() {
+        courseload.addCourse("CPSC 210");
+        ArrayList<Course> courseList = new ArrayList<>();
+        courseList.add(new Course("CPSC 210"));
+
+        assertEquals(courseload.iterator().next(),courseList.get(0));
+
     }
 
 }

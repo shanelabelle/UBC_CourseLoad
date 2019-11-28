@@ -1,11 +1,11 @@
 package modeltests;
 
+import model.Course;
 import model.Segment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SegmentTest {
     Segment seg;
@@ -47,24 +47,38 @@ public class SegmentTest {
     @Test
     void equalsTestDiffType() {
         Segment otherSegment = new Segment("Midterm",55);
-        assertNotEquals(seg, otherSegment);
+        assertFalse(seg.equals(otherSegment));
 
     }
 
     @Test
     void equalsTestDiffWeight() {
         Segment otherSegment = new Segment("Final",25);
-        assertNotEquals(seg, otherSegment);
+        assertFalse(seg.equals(otherSegment));
     }
 
     @Test
     void equalsTestNull() {
-        assertNotEquals(null,seg);
+        assertFalse(seg.equals(null));
     }
 
     @Test
     void equalsTestSame() {
         assertEquals(seg,seg);
+    }
+
+    @Test
+    void equalsTestOtherObj() {
+        Course course = new Course("CPSC 121");
+
+        assertFalse(course.equals(seg));
+    }
+
+    @Test
+    void hashCodeTest() {
+        Segment otherSegment = new Segment("Final",55);
+        assertEquals(seg.hashCode(),otherSegment.hashCode());
+
     }
 
 }

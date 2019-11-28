@@ -56,7 +56,6 @@ public class CourseLoad extends Observable implements Iterable<Course> {
     // EFFECTS: adds new course to the user's courseload
     public void addCourse(String courseName) {
         Course newCourse = new Course(courseName);
-        //NEED TO OVERRIDE HASHCODE AND EQUALS ON COURSES TO GET THIS TO WORK
         if (!courses.contains(newCourse)) {
             this.courses.add(newCourse);
             this.numberOfCourses = ++this.numberOfCourses;

@@ -44,10 +44,23 @@ class CourseTest {
 
 
     @Test
+    void addSegmentTestAlreadyThere() {
+        course.addSegment(segment1);
+        course.addSegment(segment1);
+
+        assertEquals(2, course.getSegments().size());
+    }
+    @Test
     void addSegmentTest() {
         course.addSegment(segment1);
         assertTrue(course.contains(segment1));
 
+    }
+
+    @Test
+    void removeSegmentTestEmpty() {
+        course.removeSegment(segment1);
+        assertFalse(course.contains(segment1));
     }
 
     @Test
@@ -95,8 +108,14 @@ class CourseTest {
     }
 
     @Test
+    void equalsTestOtherObj() {
+        Segment segment = new Segment("Final",55);
+        assertNotEquals(segment,course);
+    }
+
+    @Test
     void equalsTestNull() {
-        assertNotEquals(null,course);
+        assertFalse(course.equals(null));
     }
 
     @Test
@@ -141,6 +160,20 @@ class CourseTest {
 
         assertEquals(panel.getPreferredSize(),course.getCourseChart().getPreferredSize());
 
+    }
+
+    @Test
+    void hashCodeTest() {
+        Course otherCourse = new Course("CPSC 210");
+        assertEquals(course.hashCode(),otherCourse.hashCode());
+    }
+
+    @Test
+    void iteratorTest() {
+        ArrayList<Segment> segments = new ArrayList<>();
+        segments.add(new Segment("Final",100));
+
+        assertEquals(course.iterator().next(),segments.get(0));
     }
 
 
