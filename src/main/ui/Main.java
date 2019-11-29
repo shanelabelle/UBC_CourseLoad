@@ -299,9 +299,6 @@ public class Main extends JFrame {
         });
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
 
     public static void main(String[] args) {
 
@@ -471,7 +468,7 @@ public class Main extends JFrame {
 
     }
 
-    public void hideEmptyCourseField() {
+    private void hideEmptyCourseField() {
         for (JTextField textField: courseFields) {
             if (textField.getText().isEmpty()) {
                 textField.setVisible(false);
