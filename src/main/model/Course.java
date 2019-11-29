@@ -23,6 +23,7 @@ public class Course implements Iterable<Segment> {
         this.segments.add(new Segment("Final",100));
 
     }
+
     // REQUIRES: a segment to check
     // MODIFIES: none
     // EFFECTS: returns TRUE if the segment is in the course
