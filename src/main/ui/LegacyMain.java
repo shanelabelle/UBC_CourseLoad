@@ -4,15 +4,15 @@ package ui;
 import java.io.IOException;
 
 public class LegacyMain {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-
-
-        // Create's a new user setup interface
-        UserSetup setup = new UserSetup();
-
-        // Requests user info to create new user and course load
-        setup.getUserInfo();
-
-
-    }
+//    public static void main(String[] args) throws IOException, ClassNotFoundException {
+//
+//
+//        // Create's a new user setup interface
+//        UserSetup setup = new UserSetup();
+//
+//        // Requests user info to create new user and course load
+//        setup.getUserInfo();
+//
+//
+//    }
 }
