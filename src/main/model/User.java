@@ -1,9 +1,6 @@
 package model;
 
 
-import java.io.*;
-import java.util.Observable;
-import java.util.Observer;
 
 public class User {
     private String username;
@@ -11,7 +8,6 @@ public class User {
     private String lastName;
     private String major;
     private CourseLoad courseLoad;
-    private String userString;
 
 
     public User() {
@@ -23,7 +19,9 @@ public class User {
     }
 
 
-
+    // REQUIRES: a string
+    // MODIFIES: this
+    // EFFECTS: sets username
     public void setUserName(String name) {
         this.username = name;
     }
@@ -42,6 +40,9 @@ public class User {
         this.lastName = name;
     }
 
+    // REQUIRES: none
+    // MODIFIES: none
+    // EFFECTS: returns username
     public String getUsername() {
         return this.username;
     }

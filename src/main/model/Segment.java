@@ -30,10 +30,17 @@ public class Segment implements Comparable<Segment> {
         return Objects.hash(type, weight);
     }
 
+
+    // REQUIRES: none
+    // MODIFIES: none
+    // EFFECTS: returns segment type (String)
     public String getType() {
         return this.type;
     }
 
+    // REQUIRES: none
+    // MODIFIES: none
+    // EFFECTS: returns segment weight (int)
     public int getWeight() {
         return this.weight;
     }

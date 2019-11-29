@@ -18,14 +18,26 @@ public class CourseLoad extends Observable implements Iterable<Course> {
 
     }
 
+    // REQUIRES: int index
+    // MODIFIES: none
+    // EFFECTS: returns the the course from courseload at the given index
     public Course get(int index) {
         return this.courses.get(index);
     }
 
+
+    // REQUIRES: none
+    // MODIFIES: none
+    // EFFECTS: returns the size of the courseloac
     public int size() {
         return this.courses.size();
     }
 
+
+    // REQUIRES: a string of the course name
+    // MODIFIES: none
+    // EFFECTS: returns TRUE if the course is in the courseload
+    // returns FALSE if the course is NOT in the courseload
     public boolean contains(String courseName) {
         Course course = new Course(courseName);
 
@@ -36,6 +48,9 @@ public class CourseLoad extends Observable implements Iterable<Course> {
         }
     }
 
+    // REQUIRES: none
+    // MODIFIES: none
+    // EFFECTS: returns a string representation of the courseload object
     public String toString() {
         fileOutput = "";
 
@@ -51,20 +66,10 @@ public class CourseLoad extends Observable implements Iterable<Course> {
             fileOutput = fileOutput + "\n";
 
         }
-//        int counter = 0;
-//        while (counter < this.courses.size()) {
-//            if (counter == 0) {
-//                fileOutput = this.courses.get(0).getName() + ": ";
-//                counter++;
-//            } else {
-//                fileOutput = fileOutput + ", " + this.courses.get(counter).getName();
-//                counter++;
-//            }
-//        }
         return fileOutput;
     }
 
-    // REQUIRES: a string
+    // REQUIRES: a course to add
     // MODIFIES: this
     // EFFECTS: adds new course to the user's courseload
     public void addCourse(Course newCourse) {
@@ -75,7 +80,7 @@ public class CourseLoad extends Observable implements Iterable<Course> {
         }
     }
 
-    // REQUIRES: a string
+    // REQUIRES: a course to remove
     // MODIFIES: this
     // EFFECTS: removes new course to the user's courseload
     public void removeCourse(Course course) {
@@ -88,6 +93,9 @@ public class CourseLoad extends Observable implements Iterable<Course> {
 
     }
 
+    // REQUIRES: none
+    // MODIFIES: this
+    // EFFECTS: removes all courses from courselist
     public void removeAllCourses() {
         this.courses = new ArrayList<Course>();
         this.numberOfCourses = 0;
