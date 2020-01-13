@@ -5,4 +5,4 @@ courses and grade distributions with a simple and elegant GUI.
 
 ## License & copyright
 
-© Shane Labelle,UBC 2020
+© Shane Labelle, UBC 2020
