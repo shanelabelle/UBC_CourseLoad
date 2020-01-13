@@ -300,19 +300,6 @@ public class Main extends JFrame {
     }
 
 
-//    public static void main(String[] args) {
-//
-//        UserSetup setup = new UserSetup();
-//        try {
-//            setup.loadUser("Shane");
-//        } catch (Exception bad) {
-//            System.out.println("baduser");
-//        }
-//        User shane = setup.getUser();
-//
-//        JFrame mainFrame = new Main("UBC CourseLoad", shane);
-//        mainFrame.setVisible(true);
-//    }
 
     private void reDrawSegmentFields() {
 

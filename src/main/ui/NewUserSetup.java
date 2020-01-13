@@ -95,11 +95,6 @@ public class NewUserSetup extends JFrame {
         });
     }
 
-//    public static void main(String[] args) {
-//
-//        JFrame frame = new NewUserSetup("UBC CourseLoad");
-//        frame.setVisible(true);
-//    }
 
     private void validateUserNameField() throws EmptyUserField {
         if ((userNameField.getText().isEmpty())) {
